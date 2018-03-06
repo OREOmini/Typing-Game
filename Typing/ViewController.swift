@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class ViewController: UIViewController {
 
@@ -19,7 +20,10 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    func setUpElement() {
+        let startBtn = UIButton()
+        
+    }
 }
 
