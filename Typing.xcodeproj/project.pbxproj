@@ -14,6 +14,7 @@
 		DEB11D6E204E6E96007FF2EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEB11D6D204E6E96007FF2EA /* Assets.xcassets */; };
 		DEB11D71204E6E96007FF2EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEB11D6F204E6E96007FF2EA /* LaunchScreen.storyboard */; };
 		DEB11D79204E6F6D007FF2EA /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEB11D78204E6F6D007FF2EA /* SnapKit.framework */; };
+		DEB11D7B204E73F2007FF2EA /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB11D7A204E73F2007FF2EA /* Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		DEB11D70204E6E96007FF2EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DEB11D72204E6E96007FF2EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DEB11D78204E6F6D007FF2EA /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = "../../Library/Developer/Xcode/DerivedData/Typing-bgedxikoaejehwakvroqjxvmrorp/Build/Products/Debug-iphonesimulator/SnapKit/SnapKit.framework"; sourceTree = "<group>"; };
+		DEB11D7A204E73F2007FF2EA /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		F4ED6BF67190108D194B4A3A /* Pods_Typing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Typing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -88,6 +90,7 @@
 				DEB11D6D204E6E96007FF2EA /* Assets.xcassets */,
 				DEB11D6F204E6E96007FF2EA /* LaunchScreen.storyboard */,
 				DEB11D72204E6E96007FF2EA /* Info.plist */,
+				DEB11D7A204E73F2007FF2EA /* Extension.swift */,
 			);
 			path = Typing;
 			sourceTree = "<group>";
@@ -216,6 +219,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEB11D7B204E73F2007FF2EA /* Extension.swift in Sources */,
 				DEB11D69204E6E95007FF2EA /* ViewController.swift in Sources */,
 				DEB11D67204E6E95007FF2EA /* AppDelegate.swift in Sources */,
 			);

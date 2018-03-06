@@ -22,7 +22,12 @@ class ViewController: UIViewController {
     }
     
     func setUpElement() {
-        let startBtn = UIButton()
+        let startBtn = UIButton().add(to: self.view)
+            .layout { (make) in
+                make.centerX.centerY.equalToSuperview()
+        }.config { (btn) in
+            btn.setTitle("Start", for: .normal)
+        }
         
     }
 }
