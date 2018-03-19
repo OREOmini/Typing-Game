@@ -19,15 +19,25 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>YYKeyboardManager.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>3B5F988950F58CBDFA22A51454549D5A</key>
+		<key>2C979BC2AA6BAC8C70F38A77075906F5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CBB33BE0E8D0662B7CDA2863B48A6BD9</key>
+		<key>A0E54E2C23DD602C8006FB8173AEFE00</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D00819772835CD1E83F16775859F22C5</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -9,5 +9,6 @@ target 'Typing' do
   # Pods for typing
   pod 'SnapKit', '3.1.2'
   pod 'Masonry'
+  pod 'YYKeyboardManager'
 end
 

@@ -15,6 +15,7 @@
 		DEB11D71204E6E96007FF2EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEB11D6F204E6E96007FF2EA /* LaunchScreen.storyboard */; };
 		DEB11D79204E6F6D007FF2EA /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEB11D78204E6F6D007FF2EA /* SnapKit.framework */; };
 		DEB11D7B204E73F2007FF2EA /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB11D7A204E73F2007FF2EA /* Extension.swift */; };
+		DEB11D7F205B90E5007FF2EA /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB11D7E205B90E5007FF2EA /* GameViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,8 @@
 		DEB11D72204E6E96007FF2EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DEB11D78204E6F6D007FF2EA /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = "../../Library/Developer/Xcode/DerivedData/Typing-bgedxikoaejehwakvroqjxvmrorp/Build/Products/Debug-iphonesimulator/SnapKit/SnapKit.framework"; sourceTree = "<group>"; };
 		DEB11D7A204E73F2007FF2EA /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		DEB11D7E205B90E5007FF2EA /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		DEB11D80205F82E5007FF2EA /* Typing-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Typing-Bridging-Header.h"; sourceTree = "<group>"; };
 		F4ED6BF67190108D194B4A3A /* Pods_Typing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Typing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -66,6 +69,7 @@
 		DEB11D5A204E6E95007FF2EA = {
 			isa = PBXGroup;
 			children = (
+				DEB11D80205F82E5007FF2EA /* Typing-Bridging-Header.h */,
 				DEB11D65204E6E95007FF2EA /* Typing */,
 				DEB11D64204E6E95007FF2EA /* Products */,
 				31F49E7A8949E96FF2BA723A /* Pods */,
@@ -86,6 +90,7 @@
 			children = (
 				DEB11D66204E6E95007FF2EA /* AppDelegate.swift */,
 				DEB11D68204E6E95007FF2EA /* ViewController.swift */,
+				DEB11D7E205B90E5007FF2EA /* GameViewController.swift */,
 				DEB11D6A204E6E95007FF2EA /* Main.storyboard */,
 				DEB11D6D204E6E96007FF2EA /* Assets.xcassets */,
 				DEB11D6F204E6E96007FF2EA /* LaunchScreen.storyboard */,
@@ -219,6 +224,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEB11D7F205B90E5007FF2EA /* GameViewController.swift in Sources */,
 				DEB11D7B204E73F2007FF2EA /* Extension.swift in Sources */,
 				DEB11D69204E6E95007FF2EA /* ViewController.swift in Sources */,
 				DEB11D67204E6E95007FF2EA /* AppDelegate.swift in Sources */,
@@ -350,6 +356,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = YunwenWang.Typing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Typing-Bridging-Header.h";
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "Typing-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -364,6 +372,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = YunwenWang.Typing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Typing-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
