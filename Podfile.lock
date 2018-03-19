@@ -1,18 +1,21 @@
 PODS:
   - Masonry (1.0.2)
   - SnapKit (3.1.2)
+  - WHC_KeyboardManager (1.1.2)
   - YYKeyboardManager (1.0.1)
 
 DEPENDENCIES:
   - Masonry
   - SnapKit (= 3.1.2)
+  - WHC_KeyboardManager
   - YYKeyboardManager
 
 SPEC CHECKSUMS:
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   SnapKit: 12b24f569cb7c143acc9c22b9d91b23e7b1c84a2
+  WHC_KeyboardManager: 7a1cf411a18f127780bdd0d009dd14cb4305a931
   YYKeyboardManager: ff53d2e80d1808567a7f004028bd200d9469a89f
 
-PODFILE CHECKSUM: b0b035395a4f5b2f1c7ecd832073d84fffb595e6
+PODFILE CHECKSUM: aaf3e4b735b6de9bfe76f47b7af50acd2637648f
 
 COCOAPODS: 1.1.1

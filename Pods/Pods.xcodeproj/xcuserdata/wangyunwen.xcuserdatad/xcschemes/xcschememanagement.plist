@@ -19,6 +19,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>WHC_KeyboardManager.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>YYKeyboardManager.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,17 +32,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>2C979BC2AA6BAC8C70F38A77075906F5</key>
+		<key>101D576DEB21AD2BBF1330E5191ED3FF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A0E54E2C23DD602C8006FB8173AEFE00</key>
+		<key>5A15268CD0884DD83314E349DF3EC5F3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D00819772835CD1E83F16775859F22C5</key>
+		<key>7C56A5887E558A66B9C72D065038AA02</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B8D8741900C56499863D23284E8403D8</key>
 		<dict>
 			<key>primary</key>
 			<true/>

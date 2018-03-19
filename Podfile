@@ -10,5 +10,6 @@ target 'Typing' do
   pod 'SnapKit', '3.1.2'
   pod 'Masonry'
   pod 'YYKeyboardManager'
+  pod 'WHC_KeyboardManager'
 end
 

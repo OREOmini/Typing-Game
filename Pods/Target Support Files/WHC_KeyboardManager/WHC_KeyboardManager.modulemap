@@ -1,0 +1,6 @@
+framework module WHC_KeyboardManager {
+  umbrella header "WHC_KeyboardManager-umbrella.h"
+
+  export *
+  module * { export * }
+}

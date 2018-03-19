@@ -13,6 +13,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpElement()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -22,11 +23,15 @@ class ViewController: UIViewController {
     }
     
     func setUpElement() {
-        UIButton().add(to: self.view)
+        UIButton()
+            .add(to: self.view)
             .layout { (make) in
+                make.width.height.equalTo(100)
                 make.centerX.centerY.equalToSuperview()
         }.config { (btn) in
             btn.setTitle("Start", for: .normal)
+            btn.setTitleColor(.white, for: .normal)
+            btn.backgroundColor = .gray
             btn.addTarget(self, action: #selector(startGame), for: .touchUpInside)
         }
         
