@@ -11,5 +11,8 @@ target 'Typing' do
   pod 'Masonry'
   pod 'YYKeyboardManager'
   pod 'WHC_KeyboardManager'
+  pod 'IQKeyboardManagerSwift'
+  
+  
 end
 
