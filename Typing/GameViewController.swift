@@ -16,6 +16,7 @@ class GameViewController: UIViewController {
     var textField:UITextField?
     var gameView:UIView?
     var keyboardView:UIView?
+    var letterUtils = ChineseLetterUtils()
     
     override func viewWillAppear(_ animated: Bool) {
         // 让textField自动获取焦点，弹出键盘
@@ -26,6 +27,8 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         setUpElement()
+        print("======")
+        print(letterUtils.easyStr)
     }
     
     override func didReceiveMemoryWarning() {
