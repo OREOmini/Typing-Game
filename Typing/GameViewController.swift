@@ -13,14 +13,25 @@ import WHC_KeyboardManager
 import IQKeyboardManagerSwift
 
 class GameViewController: UIViewController {
+    
     var textField:UITextField?
     var gameView:UIView?
     var keyboardView:UIView?
+    var infoView:UIView?
+    var playView:UIView?
     var letterUtils = ChineseLetterUtils()
+    
+    var manager:IQKeyboardManager? = IQKeyboardManager.sharedManager()
     
     override func viewWillAppear(_ animated: Bool) {
         // 让textField自动获取焦点，弹出键盘
         textField?.becomeFirstResponder()
+        
+        manager?.enable = true
+        manager?.shouldResignOnTouchOutside = false
+        manager?.keyboardAppearance = UIKeyboardAppearance.default
+    
+//        manager.enableAutoToolbar = false
     }
     
     override func viewDidLoad() {
@@ -37,16 +48,17 @@ class GameViewController: UIViewController {
     func setUpElement() {
 //        let configuration = WHC_KeyboardManager.share.addMonitorViewController(self)
         
-        let manager:IQKeyboardManager = IQKeyboardManager.sharedManager()
-        manager.enable = true
-        manager.shouldResignOnTouchOutside = false
-        manager.keyboardAppearance = UIKeyboardAppearance.default
-        manager.enableAutoToolbar = false
+//        let manager:IQKeyboardManager = IQKeyboardManager.sharedManager()
+//        manager.enable = true
+//        manager.shouldResignOnTouchOutside = false
+//        manager.keyboardAppearance = UIKeyboardAppearance.default
+//        manager.enableAutoToolbar = false
         
         keyboardView = UIView()
             .add(to: self.view)
             .layout(snpMaker: { (make) in
-                let height = manager.accessibilityFrame.height + 30
+                let height = (manager?.accessibilityFrame.height)! + 30
+                print(height)
                 make.width.equalToSuperview()
                 make.height.equalTo(height)
                 make.bottom.right.left.equalToSuperview()
@@ -62,6 +74,24 @@ class GameViewController: UIViewController {
             }).config({ (view) in
                 view.backgroundColor = .yellow
             })
+        infoView = UIView()
+            .add(to: self.gameView!)
+            .layout(snpMaker: { (make) in
+                make.width.equalToSuperview()
+                make.top.left.right.equalToSuperview()
+                make.height.equalTo(50)
+            }).config({ (view) in
+                view.backgroundColor = .lightGray
+            })
+        playView = UIView()
+            .add(to: self.gameView!)
+            .layout(snpMaker: { (make) in
+                make.width.left.right.bottom.equalToSuperview()
+                make.top.equalTo((infoView?.snp.bottom)!)
+            }).config({ (view) in
+                view.backgroundColor = .red
+            })
+        
         
         UILabel().add(to: self.gameView!)
             .layout { (make) in
