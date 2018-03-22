@@ -27,8 +27,6 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         setUpElement()
-        print("======")
-        print(letterUtils.easyStr)
     }
     
     override func didReceiveMemoryWarning() {
@@ -65,6 +63,14 @@ class GameViewController: UIViewController {
                 view.backgroundColor = .yellow
             })
         
+        UILabel().add(to: self.gameView!)
+            .layout { (make) in
+                make.left.right.top.bottom.equalToSuperview()
+        }.config { (view) in
+            view.text = letterUtils.getRandomEasyLetter() + letterUtils.getRandomHardLetter()
+//            view.text = letterUtils.easyStr as String?
+            view.lineBreakMode = .byCharWrapping
+        }
         
         self.view.backgroundColor = .white
         textField = UITextField()

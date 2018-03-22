@@ -37,7 +37,7 @@
 		DEB11D78204E6F6D007FF2EA /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = "../../Library/Developer/Xcode/DerivedData/Typing-bgedxikoaejehwakvroqjxvmrorp/Build/Products/Debug-iphonesimulator/SnapKit/SnapKit.framework"; sourceTree = "<group>"; };
 		DEB11D7A204E73F2007FF2EA /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		DEB11D7E205B90E5007FF2EA /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
-		DEB11D80205F82E5007FF2EA /* Typing-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Typing-Bridging-Header.h"; sourceTree = "<group>"; };
+		DEB11D80205F82E5007FF2EA /* Typing-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Typing-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		F4ED6BF67190108D194B4A3A /* Pods_Typing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Typing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -84,7 +84,6 @@
 		DEB11D5A204E6E95007FF2EA = {
 			isa = PBXGroup;
 			children = (
-				DEB11D80205F82E5007FF2EA /* Typing-Bridging-Header.h */,
 				DEB11D65204E6E95007FF2EA /* Typing */,
 				DEB11D64204E6E95007FF2EA /* Products */,
 				31F49E7A8949E96FF2BA723A /* Pods */,
@@ -103,16 +102,17 @@
 		DEB11D65204E6E95007FF2EA /* Typing */ = {
 			isa = PBXGroup;
 			children = (
+				DEB11D80205F82E5007FF2EA /* Typing-Bridging-Header.h */,
 				DE6DEDCA2062AAB5004BC338 /* supporting files */,
 				DEB11D66204E6E95007FF2EA /* AppDelegate.swift */,
 				DEB11D68204E6E95007FF2EA /* ViewController.swift */,
 				DEB11D7E205B90E5007FF2EA /* GameViewController.swift */,
+				DE6DEDC82062A983004BC338 /* ChineseLetterUtils.swift */,
 				DEB11D6A204E6E95007FF2EA /* Main.storyboard */,
 				DEB11D6D204E6E96007FF2EA /* Assets.xcassets */,
 				DEB11D6F204E6E96007FF2EA /* LaunchScreen.storyboard */,
 				DEB11D72204E6E96007FF2EA /* Info.plist */,
 				DEB11D7A204E73F2007FF2EA /* Extension.swift */,
-				DE6DEDC82062A983004BC338 /* ChineseLetterUtils.swift */,
 			);
 			path = Typing;
 			sourceTree = "<group>";
