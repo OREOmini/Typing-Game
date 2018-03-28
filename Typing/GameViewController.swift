@@ -21,6 +21,9 @@ class GameViewController: UIViewController {
     var playView:UIView?
     var letterUtils = ChineseLetterUtils()
     
+    var timer:Timer?
+    var timerLabel:UILabel?
+    
     var manager:IQKeyboardManager? = IQKeyboardManager.sharedManager()
     
     override func viewWillAppear(_ animated: Bool) {
@@ -30,20 +33,25 @@ class GameViewController: UIViewController {
         manager?.enable = true
         manager?.shouldResignOnTouchOutside = false
         manager?.keyboardAppearance = UIKeyboardAppearance.default
-    
-//        manager.enableAutoToolbar = false
+        manager?.enableAutoToolbar = false
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         setUpElement()
+        
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerCountDown), userInfo: nil, repeats: true)
+        timer?.fire()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    // MARK: 页面布局
     
     func setUpElement() {
 //        let configuration = WHC_KeyboardManager.share.addMonitorViewController(self)
@@ -57,7 +65,9 @@ class GameViewController: UIViewController {
         keyboardView = UIView()
             .add(to: self.view)
             .layout(snpMaker: { (make) in
-                let height = (manager?.accessibilityFrame.height)! + 30
+                let keyboardHeight = 260
+                let height = keyboardHeight + 30
+//                let height = (manager?.accessibilityFrame.height)! + 30
                 print(height)
                 make.width.equalToSuperview()
                 make.height.equalTo(height)
@@ -79,7 +89,7 @@ class GameViewController: UIViewController {
             .layout(snpMaker: { (make) in
                 make.width.equalToSuperview()
                 make.top.left.right.equalToSuperview()
-                make.height.equalTo(50)
+                make.height.equalTo(70)
             }).config({ (view) in
                 view.backgroundColor = .lightGray
             })
@@ -89,15 +99,23 @@ class GameViewController: UIViewController {
                 make.width.left.right.bottom.equalToSuperview()
                 make.top.equalTo((infoView?.snp.bottom)!)
             }).config({ (view) in
-                view.backgroundColor = .red
+                view.backgroundColor = .white
+            })
+        
+        timerLabel = UILabel().add(to: self.infoView!)
+            .layout(snpMaker: { (make) in
+                make.center.equalToSuperview()
+            }).config({ (view) in
+                view.text = "100"
+                view.tag = 100
             })
         
         
-        UILabel().add(to: self.gameView!)
+        UILabel().add(to: self.playView!)
             .layout { (make) in
                 make.left.right.top.bottom.equalToSuperview()
         }.config { (view) in
-            view.text = letterUtils.getRandomEasyLetter() + letterUtils.getRandomHardLetter()
+            view.text = letterUtils.getRandomEasyLetter()
 //            view.text = letterUtils.easyStr as String?
             view.lineBreakMode = .byCharWrapping
         }
@@ -119,5 +137,39 @@ class GameViewController: UIViewController {
 //        view = manager?.keyboardView
     
     }
+    
+    // MARK: 倒计时
+    func timerCountDown() {
+        let num = (timerLabel?.tag)! - 1
+        timerLabel?.text = String(num)
+        timerLabel?.tag = num
+        
+        for subView in (self.playView?.subviews)! {
+            print(subView.placeholderText)
+            subView.snp.updateConstraints({ (make) in
+                make.left.equalTo(subView.snp.left).inset(10)
+            })
+        }
+    }
+    
+    // MARK: 游戏动态
+    
+    func showNewLetter(letter:String) -> Bool {
+        let label = UILabel()
+            .add(to: self.playView!)
+            .layout { (make) in
+                make.right.equalToSuperview()
+                make.top.equalTo(30)
+                make.width.height.equalTo(20)
+        }.config { (view) in
+            view.layer.borderWidth = 2
+            view.layer.borderColor = UIColor.brown.cgColor
+            view.text = letterUtils.getRandomEasyLetter()
+            view.textAlignment = .center
+        }
+        
+        return true
+    }
+    // MARK - 游戏功能
     
 }
