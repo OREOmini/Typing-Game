@@ -9,7 +9,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Masonry.xcscheme</key>
+		<key>KDCircularProgress.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -24,25 +24,10 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>WHC_KeyboardManager.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>YYKeyboardManager.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0C11D68EF50F5F5661DCB19810BE9BFD</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>43928F045F1C7C78F4A5C88D8C72771D</key>
+		<key>322428ECC8C5EC71F14C92233787C7AC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -52,17 +37,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>ABB643F44EDB925091F1BB65D39511F1</key>
+		<key>897BF81F509D0228EB70894A59243704</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BEA59E51D409D6CADC624044C106BDA8</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D52144DE9D7255DE912490FF5A806573</key>
+		<key>E20504B3BA5662B345DF03AAC5DAA605</key>
 		<dict>
 			<key>primary</key>
 			<true/>

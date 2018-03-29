@@ -1,24 +1,18 @@
 PODS:
   - IQKeyboardManagerSwift (4.0.8)
-  - Masonry (1.0.2)
+  - KDCircularProgress (1.5.2)
   - SnapKit (3.1.2)
-  - WHC_KeyboardManager (1.1.2)
-  - YYKeyboardManager (1.0.1)
 
 DEPENDENCIES:
   - IQKeyboardManagerSwift
-  - Masonry
+  - KDCircularProgress
   - SnapKit (= 3.1.2)
-  - WHC_KeyboardManager
-  - YYKeyboardManager
 
 SPEC CHECKSUMS:
   IQKeyboardManagerSwift: c04bc9f68473823f825eb44d958fce98d921bead
-  Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
+  KDCircularProgress: 12f677b2deb02409ab48c6cae1898d146b8ad549
   SnapKit: 12b24f569cb7c143acc9c22b9d91b23e7b1c84a2
-  WHC_KeyboardManager: 7a1cf411a18f127780bdd0d009dd14cb4305a931
-  YYKeyboardManager: ff53d2e80d1808567a7f004028bd200d9469a89f
 
-PODFILE CHECKSUM: 65a213aeb9fc503bbf624a5356ad6c11ac688f8a
+PODFILE CHECKSUM: f8e32f2a5da4d257bcb5724dae3e3ec41373f422
 
 COCOAPODS: 1.1.1

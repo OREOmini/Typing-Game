@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6271A173396923332A1139DE /* Pods_Typing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4ED6BF67190108D194B4A3A /* Pods_Typing.framework */; };
+		DE05422E206BEEAD0091122A /* LetterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE05422D206BEEAD0091122A /* LetterView.swift */; };
 		DE6DEDC92062A983004BC338 /* ChineseLetterUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6DEDC82062A983004BC338 /* ChineseLetterUtils.swift */; };
 		DE6DEDCD2062ABAC004BC338 /* hardLetters.txt in Resources */ = {isa = PBXBuildFile; fileRef = DE6DEDCB2062ABAC004BC338 /* hardLetters.txt */; };
 		DE6DEDCE2062ABAC004BC338 /* easyLetters.txt in Resources */ = {isa = PBXBuildFile; fileRef = DE6DEDCC2062ABAC004BC338 /* easyLetters.txt */; };
@@ -24,6 +25,7 @@
 /* Begin PBXFileReference section */
 		6FE1455DEABE4BD997EE25DB /* Pods-Typing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Typing.release.xcconfig"; path = "Pods/Target Support Files/Pods-Typing/Pods-Typing.release.xcconfig"; sourceTree = "<group>"; };
 		D4F67CBA550360F5A2F4A6E3 /* Pods-Typing.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Typing.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Typing/Pods-Typing.debug.xcconfig"; sourceTree = "<group>"; };
+		DE05422D206BEEAD0091122A /* LetterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LetterView.swift; sourceTree = "<group>"; };
 		DE6DEDC82062A983004BC338 /* ChineseLetterUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChineseLetterUtils.swift; sourceTree = "<group>"; };
 		DE6DEDCB2062ABAC004BC338 /* hardLetters.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = hardLetters.txt; path = ../../../Downloads/hardLetters.txt; sourceTree = "<group>"; };
 		DE6DEDCC2062ABAC004BC338 /* easyLetters.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = easyLetters.txt; path = ../../../Downloads/easyLetters.txt; sourceTree = "<group>"; };
@@ -72,6 +74,24 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		DE05422F206C885F0091122A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DE6DEDC82062A983004BC338 /* ChineseLetterUtils.swift */,
+				DE05422D206BEEAD0091122A /* LetterView.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		DE054230206C88870091122A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DEB11D68204E6E95007FF2EA /* ViewController.swift */,
+				DEB11D7E205B90E5007FF2EA /* GameViewController.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		DE6DEDCA2062AAB5004BC338 /* supporting files */ = {
 			isa = PBXGroup;
 			children = (
@@ -102,12 +122,11 @@
 		DEB11D65204E6E95007FF2EA /* Typing */ = {
 			isa = PBXGroup;
 			children = (
+				DE054230206C88870091122A /* View */,
+				DE05422F206C885F0091122A /* Model */,
 				DEB11D80205F82E5007FF2EA /* Typing-Bridging-Header.h */,
 				DE6DEDCA2062AAB5004BC338 /* supporting files */,
 				DEB11D66204E6E95007FF2EA /* AppDelegate.swift */,
-				DEB11D68204E6E95007FF2EA /* ViewController.swift */,
-				DEB11D7E205B90E5007FF2EA /* GameViewController.swift */,
-				DE6DEDC82062A983004BC338 /* ChineseLetterUtils.swift */,
 				DEB11D6A204E6E95007FF2EA /* Main.storyboard */,
 				DEB11D6D204E6E96007FF2EA /* Assets.xcassets */,
 				DEB11D6F204E6E96007FF2EA /* LaunchScreen.storyboard */,
@@ -247,6 +266,7 @@
 				DEB11D7B204E73F2007FF2EA /* Extension.swift in Sources */,
 				DEB11D69204E6E95007FF2EA /* ViewController.swift in Sources */,
 				DE6DEDC92062A983004BC338 /* ChineseLetterUtils.swift in Sources */,
+				DE05422E206BEEAD0091122A /* LetterView.swift in Sources */,
 				DEB11D67204E6E95007FF2EA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

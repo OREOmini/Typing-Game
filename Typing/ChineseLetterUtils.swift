@@ -15,10 +15,6 @@ class ChineseLetterUtils {
     init() {
         let easyPath = Bundle.main.path(forResource: "easyLetters", ofType: "txt")
         let hardPath = Bundle.main.path(forResource: "hardLetters", ofType: "txt")
-//        var data:NSData = NSData(contentsOfFile: path!)
-//        easyStr = NSString(data: data as Data, encoding: UTF8)
-//        print(data)
-//        print("------")
         
         
         do {

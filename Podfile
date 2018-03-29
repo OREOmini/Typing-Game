@@ -8,10 +8,11 @@ target 'Typing' do
 
   # Pods for typing
   pod 'SnapKit', '3.1.2'
-  pod 'Masonry'
-  pod 'YYKeyboardManager'
-  pod 'WHC_KeyboardManager'
   pod 'IQKeyboardManagerSwift'
+  
+  
+  # A circular progress view with gradients written in Swift
+  pod 'KDCircularProgress'
   
   
 end

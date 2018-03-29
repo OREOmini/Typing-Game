@@ -8,8 +8,6 @@
 
 import Foundation
 import UIKit
-import YYKeyboardManager
-import WHC_KeyboardManager
 import IQKeyboardManagerSwift
 
 class GameViewController: UIViewController {
