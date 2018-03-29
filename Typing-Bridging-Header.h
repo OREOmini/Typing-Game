@@ -9,7 +9,7 @@
 #ifndef Typing_Bridging_Header_h
 #define Typing_Bridging_Header_h
 
-#import "YYKeyboardManager/YYKeyboardManager.h"
+//#import "YYKeyboardManager/YYKeyboardManager.h"
 
 
 #endif /* Typing_Bridging_Header_h */

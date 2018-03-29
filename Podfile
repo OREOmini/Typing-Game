@@ -14,6 +14,9 @@ target 'Typing' do
   # A circular progress view with gradients written in Swift
   pod 'KDCircularProgress'
   
+  # An attractive color generator for Swift. Ported from randomColor.js.
+  pod 'RandomColorSwift'
+  
   
 end
 

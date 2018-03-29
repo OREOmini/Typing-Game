@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import IQKeyboardManagerSwift
+import KDCircularProgress
 
 class GameViewController: UIViewController {
     
@@ -52,13 +53,6 @@ class GameViewController: UIViewController {
     // MARK: 页面布局
     
     func setUpElement() {
-//        let configuration = WHC_KeyboardManager.share.addMonitorViewController(self)
-        
-//        let manager:IQKeyboardManager = IQKeyboardManager.sharedManager()
-//        manager.enable = true
-//        manager.shouldResignOnTouchOutside = false
-//        manager.keyboardAppearance = UIKeyboardAppearance.default
-//        manager.enableAutoToolbar = false
         
         keyboardView = UIView()
             .add(to: self.view)
@@ -108,6 +102,10 @@ class GameViewController: UIViewController {
                 view.tag = 100
             })
         
+        LetterView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+            .add(to: self.playView!)
+
+        
         
         UILabel().add(to: self.playView!)
             .layout { (make) in
@@ -129,11 +127,6 @@ class GameViewController: UIViewController {
                 view.borderStyle = .line
                 view.returnKeyType = .send
             })
-        
-//        let manager:YYKeyboardManager? = YYKeyboardManager.default()
-//        
-//        view = manager?.keyboardView
-    
     }
     
     // MARK: 倒计时
@@ -142,32 +135,27 @@ class GameViewController: UIViewController {
         timerLabel?.text = String(num)
         timerLabel?.tag = num
         
-        for subView in (self.playView?.subviews)! {
-            print(subView.placeholderText)
-            subView.snp.updateConstraints({ (make) in
-                make.left.equalTo(subView.snp.left).inset(10)
-            })
-        }
+        // TODO: 倒计时完成跳转
     }
     
     // MARK: 游戏动态
     
-    func showNewLetter(letter:String) -> Bool {
-        let label = UILabel()
-            .add(to: self.playView!)
-            .layout { (make) in
-                make.right.equalToSuperview()
-                make.top.equalTo(30)
-                make.width.height.equalTo(20)
-        }.config { (view) in
-            view.layer.borderWidth = 2
-            view.layer.borderColor = UIColor.brown.cgColor
-            view.text = letterUtils.getRandomEasyLetter()
-            view.textAlignment = .center
-        }
-        
-        return true
-    }
+//    func showNewLetter(letter:String) -> Bool {
+//        let label = UILabel()
+//            .add(to: self.playView!)
+//            .layout { (make) in
+//                make.right.equalToSuperview()
+//                make.top.equalTo(30)
+//                make.width.height.equalTo(20)
+//        }.config { (view) in
+//            view.layer.borderWidth = 2
+//            view.layer.borderColor = UIColor.brown.cgColor
+//            view.text = letterUtils.getRandomEasyLetter()
+//            view.textAlignment = .center
+//        }
+//        
+//        return true
+//    }
     // MARK - 游戏功能
     
 }
