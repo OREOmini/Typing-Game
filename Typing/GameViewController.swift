@@ -102,19 +102,21 @@ class GameViewController: UIViewController {
                 view.tag = 100
             })
         
-        LetterView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
-            .add(to: self.playView!)
+        LetterView(frame: CGRect(x: 100, y: 100, width: 50, height: 50))
+            .add(to: self.view)
+        
+        LetterView(frame: CGRect(x: 0, y: 0, width: 50, height: 50)).add(to: self.view)
 
         
         
-        UILabel().add(to: self.playView!)
-            .layout { (make) in
-                make.left.right.top.bottom.equalToSuperview()
-        }.config { (view) in
-            view.text = letterUtils.getRandomEasyLetter()
-//            view.text = letterUtils.easyStr as String?
-            view.lineBreakMode = .byCharWrapping
-        }
+//        UILabel().add(to: self.playView!)
+//            .layout { (make) in
+//                make.left.right.top.bottom.equalToSuperview()
+//        }.config { (view) in
+//            view.text = letterUtils.getRandomEasyLetter()
+////            view.text = letterUtils.easyStr as String?
+//            view.lineBreakMode = .byCharWrapping
+//        }
         
         self.view.backgroundColor = .white
         textField = UITextField()

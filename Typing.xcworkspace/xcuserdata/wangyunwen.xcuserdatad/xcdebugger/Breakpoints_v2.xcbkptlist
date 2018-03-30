@@ -67,5 +67,53 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Typing/LetterView.swift"
+            timestampString = "543997167.744656"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "init(frame:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Typing.LetterView.init (frame : __C.CGRect) -&gt; Typing.LetterView"
+                  moduleName = "Typing"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wangyunwen/Desktop/Typing/Typing/LetterView.swift"
+                  timestampString = "543997182.0903929"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "392">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Typing.LetterView.(init (frame : __C.CGRect) -&gt; Typing.LetterView).(closure #1)"
+                  moduleName = "Typing"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wangyunwen/Desktop/Typing/Typing/LetterView.swift"
+                  timestampString = "543997182.091975"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
