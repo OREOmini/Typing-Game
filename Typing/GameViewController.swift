@@ -18,8 +18,8 @@ class GameViewController: UIViewController {
     var keyboardView:UIView?
     var infoView:UIView?
     var playView:UIView?
-    var letterUtils = ChineseLetterUtils()
-    
+    var letterWidth:Double? = 20
+        
     var timer:Timer?
     var timerLabel:UILabel?
     
@@ -102,11 +102,7 @@ class GameViewController: UIViewController {
                 view.tag = 100
             })
         
-        LetterView(frame: CGRect(x: 100, y: 100, width: 50, height: 50))
-            .add(to: self.view)
         
-        LetterView(frame: CGRect(x: 0, y: 0, width: 50, height: 50)).add(to: self.view)
-
         
         
 //        UILabel().add(to: self.playView!)
@@ -137,10 +133,25 @@ class GameViewController: UIViewController {
         timerLabel?.text = String(num)
         timerLabel?.tag = num
         
+        if (num == 95) {
+            LetterView(frame: CGRect(x: 0, y: 0, width: 50, height: 50), easy: true).add(to: self.playView!)
+        }
+        
+        // 每秒按几率出现文字
+        if(ifShowNewLetter(percentage: 60)) {
+            addNewLetterView()
+        }
         // TODO: 倒计时完成跳转
     }
     
     // MARK: 游戏动态
+    func addNewLetterView() {
+        
+    }
+    
+    func createLetterViewFrame() -> CGRect {
+        //TODO: add new letter without collision
+    }
     
 //    func showNewLetter(letter:String) -> Bool {
 //        let label = UILabel()

@@ -17,22 +17,30 @@ class LetterView:UIView {
     var letterUtils = ChineseLetterUtils()
     var progress:KDCircularProgress
     var timeInterval:Int? = 2
+    var isEasy:Bool
     
-    override init(frame: CGRect) {
+    init(frame: CGRect, easy: Bool) {
         
         progress =  KDCircularProgress(frame: frame)
+        isEasy = easy
         super.init(frame: frame)
         
         
         setupCircularProgress(frame: frame)
         
-        progress.animate(fromAngle: 0, toAngle: 360, duration: 5, completion: { completed in
-            if completed {
-                print("animation stopped, completed")
+        UILabel()
+            .add(to: self)
+            .layout { (make) in
+                make.center.equalToSuperview()
+        }.config { (view) in
+            if (isEasy) {
+                view.text = letterUtils.getRandomEasyLetter()
             } else {
-                print("animation stopped, was interrupted")
+                view.text = letterUtils.getRandomHardLetter()
             }
-        })
+        }
+        
+        
 
     }
     
@@ -41,7 +49,7 @@ class LetterView:UIView {
 //        progress.angle = 360
         progress.clockwise = true
         // use random color
-        progress.set(colors: randomColor(hue: .random, luminosity: .dark))
+        progress.set(colors: randomColor(hue: .random, luminosity: .light))
         
         progress.roundedCorners = false
         progress.glowMode = .forward
@@ -54,6 +62,15 @@ class LetterView:UIView {
         
         
         self.addSubview(progress)
+        
+        progress.animate(fromAngle: 0, toAngle: 360, duration: 5, completion: { completed in
+            if completed {
+                print("animation stopped, completed")
+                self.removeFromSuperview()
+            } else {
+                print("animation stopped, was interrupted")
+            }
+        })
     }
     
     required init?(coder aDecoder: NSCoder) {

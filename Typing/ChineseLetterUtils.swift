@@ -55,9 +55,5 @@ class ChineseLetterUtils {
         return randomStr
     }
     
-    func getRandomNum(length:Int) -> Int {
-        return Int(arc4random_uniform(UInt32(length)))
-    }
-    
     
 }

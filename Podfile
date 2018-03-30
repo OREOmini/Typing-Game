@@ -17,6 +17,8 @@ target 'Typing' do
   # An attractive color generator for Swift. Ported from randomColor.js.
   pod 'RandomColorSwift'
   
+  #pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift2'
+  
   
 end
 

@@ -35,7 +35,7 @@ class ViewController: UIViewController {
             btn.addTarget(self, action: #selector(startGame), for: .touchUpInside)
         }
         
-        LetterView(frame: CGRect(x: 0, y: 0, width: 50, height: 50)).add(to: self.view)
+//        LetterView(frame: CGRect(x: 0, y: 0, width: 50, height: 50)).add(to: self.view)
         
     }
     
