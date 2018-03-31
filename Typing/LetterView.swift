@@ -21,13 +21,21 @@ class LetterView:UIView {
     
     init(frame: CGRect, easy: Bool) {
         
-        progress =  KDCircularProgress(frame: frame)
+        progress = KDCircularProgress(frame: frame)
         isEasy = easy
+        
         super.init(frame: frame)
         
+//        self.backgroundColor = .gray
+//        self.clipsToBounds = true
         
         setupCircularProgress(frame: frame)
+        print(frame)
+        print(progress.frame)
+        print(progress.center)
         
+        
+
         UILabel()
             .add(to: self)
             .layout { (make) in
@@ -45,19 +53,17 @@ class LetterView:UIView {
     }
     
     func setupCircularProgress(frame:CGRect) {
-        progress.startAngle = -90
-//        progress.angle = 360
         progress.clockwise = true
         // use random color
         progress.set(colors: randomColor(hue: .random, luminosity: .light))
         
-        progress.roundedCorners = false
+//        progress.roundedCorners = false
         progress.glowMode = .forward
         progress.glowAmount = 0
-        progress.center = CGPoint(x: self.center.x, y: self.center.y)
+//        progress.center = CGPoint(x: frame.origin.x + frame.width / 2, y: frame.origin.y + frame.width / 2)
         
         // 旋转一圈时间
-        progress.gradientRotateSpeed = 2
+//        progress.gradientRotateSpeed = 2
         progress.trackColor = UIColor.white
         
         

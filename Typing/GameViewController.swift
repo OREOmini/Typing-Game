@@ -18,7 +18,7 @@ class GameViewController: UIViewController {
     var keyboardView:UIView?
     var infoView:UIView?
     var playView:UIView?
-    var letterWidth:Double? = 20
+    var letterWidth:CGFloat? = 70
         
     var timer:Timer?
     var timerLabel:UILabel?
@@ -40,6 +40,7 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         setUpElement()
+        
         
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerCountDown), userInfo: nil, repeats: true)
         timer?.fire()
@@ -133,24 +134,42 @@ class GameViewController: UIViewController {
         timerLabel?.text = String(num)
         timerLabel?.tag = num
         
-        if (num == 95) {
-            LetterView(frame: CGRect(x: 0, y: 0, width: 50, height: 50), easy: true).add(to: self.playView!)
+        if (num == 98) {
+            LetterView(frame: CGRect(x: 0, y: 75, width: 50, height: 50), easy: true).add(to: self.playView!)
+//            addNewLetterView()
         }
         
         // 每秒按几率出现文字
-        if(ifShowNewLetter(percentage: 60)) {
-            addNewLetterView()
-        }
+//        if(ifShowNewLetter(percentage: 80)) {
+//            addNewLetterView()
+//        }
         // TODO: 倒计时完成跳转
     }
     
     // MARK: 游戏动态
     func addNewLetterView() {
-        
+        let frame = createLetterViewFrame()
+        LetterView(frame: frame, easy: true).add(to: self.playView!)
+
+//        for _ in 0...20 {
+//            let frame = createLetterViewFrame()
+//            if !(frame.contains(CGPoint(x: 0, y: 0))) {
+//                LetterView(frame: frame, easy: true).add(to: self.playView!)
+//                return
+//            }
+//        }
     }
     
     func createLetterViewFrame() -> CGRect {
         //TODO: add new letter without collision
+        let newFrame = getRandomFrame(frame: playView!.frame, width: letterWidth!)
+//        for subView in playView!.subviews {
+//            if (isOverlap(frameA: subView.frame, frameB: newFrame)) {
+//                return CGRect()
+//            }
+//        }
+        return newFrame
+        
     }
     
 //    func showNewLetter(letter:String) -> Bool {
