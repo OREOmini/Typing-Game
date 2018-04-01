@@ -16,23 +16,26 @@ class LetterView:UIView {
     
     var letterUtils = ChineseLetterUtils()
     var progress:KDCircularProgress
-    var timeInterval:Int? = 2
+//    var timeInterval:Int? = 2
     var isEasy:Bool
+    var letter:String
     
     init(frame: CGRect, easy: Bool) {
         
-        progress = KDCircularProgress(frame: frame)
+//        progress = KDCircularProgress(frame: frame, colors: randomColor(hue: .random, luminosity: .light))
+        
+        progress = KDCircularProgress(frame: CGRect(x: 0, y: 0,
+                                                    width: frame.width, height: frame.height))
         isEasy = easy
+        if (isEasy) {
+            letter = letterUtils.getRandomEasyLetter()
+        } else {
+            letter = letterUtils.getRandomHardLetter()
+        }
         
         super.init(frame: frame)
         
-//        self.backgroundColor = .gray
-//        self.clipsToBounds = true
-        
-        setupCircularProgress(frame: frame)
-        print(frame)
-        print(progress.frame)
-        print(progress.center)
+        setupCircularProgress()
         
         
 
@@ -41,31 +44,20 @@ class LetterView:UIView {
             .layout { (make) in
                 make.center.equalToSuperview()
         }.config { (view) in
-            if (isEasy) {
-                view.text = letterUtils.getRandomEasyLetter()
-            } else {
-                view.text = letterUtils.getRandomHardLetter()
-            }
+            view.text = letter
         }
         
         
 
     }
     
-    func setupCircularProgress(frame:CGRect) {
+    func setupCircularProgress() {
         progress.clockwise = true
         // use random color
         progress.set(colors: randomColor(hue: .random, luminosity: .light))
-        
-//        progress.roundedCorners = false
         progress.glowMode = .forward
         progress.glowAmount = 0
-//        progress.center = CGPoint(x: frame.origin.x + frame.width / 2, y: frame.origin.y + frame.width / 2)
-        
-        // 旋转一圈时间
-//        progress.gradientRotateSpeed = 2
         progress.trackColor = UIColor.white
-        
         
         self.addSubview(progress)
         

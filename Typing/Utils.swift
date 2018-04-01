@@ -34,17 +34,10 @@ func getRandomFrame(frame: CGRect, width: CGFloat) -> CGRect {
 }
 
 func isOverlap(frameA: CGRect, frameB: CGRect) -> Bool {
-    if ((frameA.height - frameB.height) < frameA.height) {
+    if (fabsf(Float(frameA.origin.y - frameB.origin.y)) < Float(frameA.height)) {
         return false
     }
-    if ((frameA.width - frameB.width) < frameA.width) {
-        return false
-    }
-
-    if ((frameB.height - frameA.height) < frameB.height) {
-        return false
-    }
-    if ((frameB.width - frameA.width) < frameA.width) {
+    if (fabsf(Float(frameA.origin.x - frameB.origin.x)) < Float(frameA.width)) {
         return false
     }
     
