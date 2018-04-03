@@ -61,7 +61,7 @@ class LetterView:UIView {
         
         self.addSubview(progress)
         
-        progress.animate(fromAngle: 0, toAngle: 360, duration: 5, completion: { completed in
+        progress.animate(fromAngle: 0, toAngle: 360, duration: 10, completion: { completed in
             if completed {
                 print("animation stopped, completed")
                 self.removeFromSuperview()

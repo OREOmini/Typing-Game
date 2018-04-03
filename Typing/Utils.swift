@@ -24,6 +24,8 @@ func getRandomNum(length:Int) -> Int {
 }
 
 func getRandomFrame(frame: CGRect, width: CGFloat) -> CGRect {
+//    print("playFrame:" + (String(describing: frame)))
+    
     let frameWidth = frame.width
     let frameHeight = frame.height
     
@@ -35,11 +37,11 @@ func getRandomFrame(frame: CGRect, width: CGFloat) -> CGRect {
 
 func isOverlap(frameA: CGRect, frameB: CGRect) -> Bool {
     if (fabsf(Float(frameA.origin.y - frameB.origin.y)) < Float(frameA.height)) {
-        return false
+        return true
     }
     if (fabsf(Float(frameA.origin.x - frameB.origin.x)) < Float(frameA.width)) {
-        return false
+        return true
     }
     
-    return true
+    return false
 }

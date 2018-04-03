@@ -11,7 +11,8 @@ import UIKit
 import IQKeyboardManagerSwift
 import KDCircularProgress
 
-class GameViewController: UIViewController {
+
+class GameViewController: UIViewController, UITextFieldDelegate{
     
     var textField:UITextField?
     var gameView:UIView?
@@ -19,7 +20,9 @@ class GameViewController: UIViewController {
     var infoView:UIView?
     var playView:UIView?
     var letterWidth:CGFloat? = 70
-        
+    var keyboardHeight:CGFloat?
+    var scoreView:UILabel?
+    
     var timer:Timer?
     var timerLabel:UILabel?
     
@@ -35,6 +38,9 @@ class GameViewController: UIViewController {
         manager?.shouldResignOnTouchOutside = false
         manager?.keyboardAppearance = UIKeyboardAppearance.default
         manager?.enableAutoToolbar = false
+        manager?.keyboardDistanceFromTextField = 1
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keybordShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         
     }
     
@@ -55,20 +61,29 @@ class GameViewController: UIViewController {
     
     // MARK: 页面布局
     
+    func keybordShow(notification:Notification)  {
+        let userinfo: NSDictionary = notification.userInfo! as NSDictionary
+        let nsValue = userinfo.object(forKey: UIKeyboardFrameEndUserInfoKey) as! NSValue
+        let keyboardRec = nsValue.cgRectValue
+        keyboardHeight = keyboardRec.size.height
+        
+        print("keybordShow:\(keyboardHeight)")
+    }
+    
     func setUpElement() {
         
         keyboardView = UIView()
             .add(to: self.view)
             .layout(snpMaker: { (make) in
-                let keyboardHeight = 260
-                let height = keyboardHeight + 30
-//                let height = (manager?.accessibilityFrame.height)! + 30
-                print(height)
+                if (keyboardHeight == nil) {
+                    keyboardHeight = 260
+                }
+                let height = keyboardHeight! + 40
                 make.width.equalToSuperview()
                 make.height.equalTo(height)
                 make.bottom.right.left.equalToSuperview()
             }).config({ (view) in
-                view.backgroundColor = .gray
+                view.backgroundColor = .white
             })
         gameView = UIView()
             .add(to: self.view)
@@ -96,6 +111,13 @@ class GameViewController: UIViewController {
             }).config({ (view) in
                 view.backgroundColor = .white
             })
+        scoreView = UILabel().add(to: infoView!)
+            .layout(snpMaker: { (make) in
+                make.left.centerY.equalToSuperview()
+                make.height.width.equalTo(50)
+            }).config({ (view) in
+                view.text = "0"
+            })
         
         timerLabel = UILabel().add(to: self.infoView!)
             .layout(snpMaker: { (make) in
@@ -121,13 +143,46 @@ class GameViewController: UIViewController {
         textField = UITextField()
             .add(to: self.keyboardView!)
             .layout(snpMaker: { (make) in
-                make.width.equalTo(200)
+                make.width.equalTo(100)
+                make.height.equalTo(40)
                 make.top.centerX.equalToSuperview()
             })
             .config({ (view) in
-                view.borderStyle = .line
+                view.borderStyle = .roundedRect
                 view.returnKeyType = .send
+                view.delegate = self
+                view.textAlignment = .center
+                view.layer.masksToBounds = true
+                view.layer.cornerRadius = 12
+                view.layer.borderWidth = 3
+                view.layer.borderColor = UIColor.gray.cgColor
             })
+    }
+    
+    // MARK: 键盘send点击后
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        let char = textField.text
+        
+        if (!(char?.isEmpty)!) {
+            for view in (playView?.subviews)!{
+                let viewLetter = (view as! LetterView).letter
+                if (viewLetter == char) {
+                    addScore(score: 1)
+                    letterViewDisappear(view: view as! LetterView)
+                    textField.text = ""
+                }
+            }
+        }
+        return true
+    }
+    
+    func addScore(score:Int) {
+        totalScore += score
+        scoreView!.text = String(totalScore)
+    }
+    
+    func letterViewDisappear(view:LetterView) {
+        view.removeFromSuperview()
     }
     
     // MARK: 倒计时
@@ -138,7 +193,7 @@ class GameViewController: UIViewController {
 
         
         // 每秒按几率出现文字
-        if(ifShowNewLetter(percentage: 80)) {
+        if(ifShowNewLetter(percentage: 80) && num <= 98) {
             addNewLetterView()
         }
         // TODO: 倒计时完成跳转
