@@ -3,19 +3,32 @@ PODS:
   - KDCircularProgress (1.5.2)
   - RandomColorSwift (1.0.0)
   - SnapKit (3.1.2)
+  - Spring (1.0.3)
 
 DEPENDENCIES:
   - IQKeyboardManagerSwift
   - KDCircularProgress
   - RandomColorSwift
   - SnapKit (= 3.1.2)
+  - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift3`)
+
+EXTERNAL SOURCES:
+  Spring:
+    :branch: swift3
+    :git: https://github.com/MengTo/Spring.git
+
+CHECKOUT OPTIONS:
+  Spring:
+    :commit: 8201b5c93bd7ebdf4cd18160bcde1e6e88c2be64
+    :git: https://github.com/MengTo/Spring.git
 
 SPEC CHECKSUMS:
   IQKeyboardManagerSwift: c04bc9f68473823f825eb44d958fce98d921bead
   KDCircularProgress: 12f677b2deb02409ab48c6cae1898d146b8ad549
   RandomColorSwift: 9f85058b721665d52d239ca166a913e083506444
   SnapKit: 12b24f569cb7c143acc9c22b9d91b23e7b1c84a2
+  Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
 
-PODFILE CHECKSUM: 496766cedf57c51190e62e0cbb334fb3884688c7
+PODFILE CHECKSUM: 637736e24d0e4abc42f371f4306119d5551187f7
 
 COCOAPODS: 1.1.1
