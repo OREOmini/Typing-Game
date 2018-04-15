@@ -11,8 +11,9 @@ import UIKit
 import SnapKit
 import KDCircularProgress
 import RandomColorSwift
+import Spring
 
-class LetterView:UIView {
+class LetterView:SpringView {
     
     var letterUtils = ChineseLetterUtils()
     var progress:KDCircularProgress
@@ -21,8 +22,6 @@ class LetterView:UIView {
     var letter:String
     
     init(frame: CGRect, easy: Bool) {
-        
-//        progress = KDCircularProgress(frame: frame, colors: randomColor(hue: .random, luminosity: .light))
         
         progress = KDCircularProgress(frame: CGRect(x: 0, y: 0,
                                                     width: frame.width, height: frame.height))
@@ -36,7 +35,7 @@ class LetterView:UIView {
         super.init(frame: frame)
         
         setupCircularProgress()
-        
+//        setSpringAnimation()
         
 
         UILabel()
@@ -69,6 +68,12 @@ class LetterView:UIView {
                 print("animation stopped, was interrupted")
             }
         })
+    }
+    
+    func setSpringAnimation() {
+        self.curve = "pop"
+        self.duration = 2
+        self.animate()
     }
     
     required init?(coder aDecoder: NSCoder) {

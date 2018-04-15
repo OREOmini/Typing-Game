@@ -39,7 +39,6 @@ class ChineseLetterUtils {
     func getRandomEasyLetter() -> String {
         let length = easyStr?.length
         let temp = getRandomNum(length: length!)
-        print("temp = " + String(temp))
         
         let randomStr:String = (easyStr?.substring(with: NSMakeRange(temp, 1)))!
         

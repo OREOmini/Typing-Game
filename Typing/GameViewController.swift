@@ -169,8 +169,9 @@ class GameViewController: UIViewController, UITextFieldDelegate{
                 if (viewLetter == char) {
                     addScore(score: 1)
                     letterViewDisappear(view: view as! LetterView)
-                    textField.text = ""
                 }
+                textField.text = ""
+
             }
         }
         return true
@@ -181,9 +182,7 @@ class GameViewController: UIViewController, UITextFieldDelegate{
         scoreView!.text = String(totalScore)
     }
     
-    func letterViewDisappear(view:LetterView) {
-        view.removeFromSuperview()
-    }
+    
     
     // MARK: 倒计时
     func timerCountDown() {
@@ -193,7 +192,7 @@ class GameViewController: UIViewController, UITextFieldDelegate{
 
         
         // 每秒按几率出现文字
-        if(ifShowNewLetter(percentage: 80) && num <= 98) {
+        if(ifShowNewLetter(percentage: 100) && num <= 98) {
             addNewLetterView()
         }
         // TODO: 倒计时完成跳转
@@ -201,10 +200,15 @@ class GameViewController: UIViewController, UITextFieldDelegate{
     
     // MARK: 游戏动态
     func addNewLetterView() {
-        for _ in 0...20 {
-            let frame = createLetterViewFrame()
+        var frame:CGRect?
+        for i in 0...2000 {
+            frame = createLetterViewFrame()
             if (frame != nil) {
-                LetterView(frame: frame!, easy: true).add(to: self.playView!)
+                let view = LetterView(frame: frame!, easy: true)
+                letterViewAppearAnimation(view: view)
+                view.add(to: self.playView!)
+                
+                print("\(i)")
                 return
             }
         }
@@ -212,6 +216,7 @@ class GameViewController: UIViewController, UITextFieldDelegate{
     
     func createLetterViewFrame() -> CGRect? {
         let newFrame = getRandomFrame(frame: playView!.frame, width: letterWidth!)
+//        print("newframe:\(newFrame)")
         for subView in playView!.subviews {
             if (isOverlap(frameA: subView.frame, frameB: newFrame)) {
                 return nil
@@ -219,6 +224,35 @@ class GameViewController: UIViewController, UITextFieldDelegate{
         }
         return newFrame
         
+    }
+    
+    func letterViewDisappear(view:LetterView) {
+        view.curve = "fadeOut"
+        view.duration = 0.5
+        view.animate()
+        view.animateToNext {
+            view.removeFromSuperview()
+        }
+        //        view.removeFromSuperview()
+        
+        //        let bounds = view.bounds
+        //        view.animateWithDuration(0.5, delay: 0.0, usingSpringWithDamping: 0.1, initialSpringVelocity: 10, options: nil, animations: {
+        //            self.loginButton.bounds = CGRect(x: bounds.origin.x - 20, y: bounds.origin.y, width: bounds.size.width + 60, height: bounds.size.height)
+        //            self.loginButton.enabled = false
+        //        }, completion: {_ in
+        //            view.removeFromSuperview()
+        //        })
+    }
+    
+    func letterViewAppearAnimation(view:LetterView) {
+        view.animation = "pop"
+        view.curve = "zoomIn"
+        view.duration = 2
+        view.animate()
+        view.animateToNext(completion: {
+//            print("Spring animate complete")
+        })
+
     }
     
 //    func showNewLetter(letter:String) -> Bool {
