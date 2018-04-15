@@ -24,6 +24,7 @@
 		DEBCB6842083347A00A6C5AE /* GameOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBCB6832083347A00A6C5AE /* GameOverViewController.swift */; };
 		DEBCB68720833BF800A6C5AE /* Typing.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DEBCB68520833BF800A6C5AE /* Typing.xcdatamodeld */; };
 		DEBCB6892083410100A6C5AE /* NumberMorphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBCB6882083410100A6C5AE /* NumberMorphView.swift */; };
+		DEBCB68D2083552D00A6C5AE /* CountDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBCB68C2083552D00A6C5AE /* CountDownView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		DEBCB6832083347A00A6C5AE /* GameOverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverViewController.swift; sourceTree = "<group>"; };
 		DEBCB68620833BF800A6C5AE /* Typing.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Typing.xcdatamodel; sourceTree = "<group>"; };
 		DEBCB6882083410100A6C5AE /* NumberMorphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberMorphView.swift; sourceTree = "<group>"; };
+		DEBCB68C2083552D00A6C5AE /* CountDownView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountDownView.swift; sourceTree = "<group>"; };
 		F4ED6BF67190108D194B4A3A /* Pods_Typing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Typing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -88,6 +90,7 @@
 				DE6DEDC82062A983004BC338 /* ChineseLetterUtils.swift */,
 				DE05422D206BEEAD0091122A /* LetterView.swift */,
 				DEBCB6882083410100A6C5AE /* NumberMorphView.swift */,
+				DEBCB68C2083552D00A6C5AE /* CountDownView.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 				DEBCB68720833BF800A6C5AE /* Typing.xcdatamodeld in Sources */,
 				DE05422E206BEEAD0091122A /* LetterView.swift in Sources */,
 				DEB11D67204E6E95007FF2EA /* AppDelegate.swift in Sources */,
+				DEBCB68D2083552D00A6C5AE /* CountDownView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

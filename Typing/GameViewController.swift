@@ -22,12 +22,16 @@ class GameViewController: UIViewController, UITextFieldDelegate{
     var letterWidth:CGFloat? = 70
     var keyboardHeight:CGFloat?
     var scoreView:NumberMorphView?
+    var timerView:UIView?
     
     var timer:Timer?
-    var timerLabel:NumberMorphView?
+    var tensView:NumberMorphView?
+    var onesView:NumberMorphView?
+//    var timerLabel:NumberMorphView?
 //    var timeLabel
     
     var totalScore:Int = 0
+    var leftTime:Int = 60
     
     var manager:IQKeyboardManager? = IQKeyboardManager.sharedManager()
     
@@ -52,6 +56,7 @@ class GameViewController: UIViewController, UITextFieldDelegate{
         
         
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerCountDown), userInfo: nil, repeats: true)
+        
         timer?.fire()
     }
     
@@ -103,6 +108,7 @@ class GameViewController: UIViewController, UITextFieldDelegate{
                 make.height.equalTo(70)
             }).config({ (view) in
                 view.backgroundColor = .clear
+                view.clipsToBounds = false
             })
         playView = UIView()
             .add(to: self.gameView!)
@@ -111,6 +117,17 @@ class GameViewController: UIViewController, UITextFieldDelegate{
                 make.top.equalTo((infoView?.snp.bottom)!)
             }).config({ (view) in
                 view.backgroundColor = .white
+            })
+        timerView = UIView()
+            .add(to: self.infoView!)
+            .layout(snpMaker: { (make) in
+                make.width.equalTo(50)
+                make.height.equalTo(40)
+                make.height.centerX.equalToSuperview()
+                make.bottom.equalToSuperview().offset(10)
+            }).config({ (view) in
+                view.backgroundColor = .white
+                view.clipsToBounds = false
             })
 //        scoreView = UILabel().add(to: infoView!)
 //            .layout(snpMaker: { (make) in
@@ -128,7 +145,6 @@ class GameViewController: UIViewController, UITextFieldDelegate{
                 make.height.width.equalTo(50)
             }).config({ (view) in
                 view.interpolator = NumberMorphView.SpringInterpolator()
-                view.lineWidth = 3
             })
         scoreView?.fontSize = 15
         scoreView?.currentDigit = 0
@@ -136,44 +152,30 @@ class GameViewController: UIViewController, UITextFieldDelegate{
         scoreView?.frame = CGRect(x: 10, y: 10, width: preferedSize.width, height: preferedSize.height)
         
         
+        // 显示倒计时数字
         
-        timerLabel = NumberMorphView()
-            .add(to: infoView!)
-            .layout(snpMaker: { (make) in
-                make.centerX.equalToSuperview()
-                make.bottom.equalToSuperview()
-                make.height.width.equalTo(50)
-                
-            }).config({ (view) in
+        tensView = NumberMorphView().add(to: timerView!)
+            .layout { (make) in
+                make.height.equalToSuperview()
+                make.width.equalToSuperview().dividedBy(2)
+                make.left.top.bottom.equalToSuperview()
+            }.config { (view) in
+                view.currentDigit = 6
                 view.interpolator = NumberMorphView.SpringInterpolator()
-                view.lineWidth = 3
-                view.fontSize = 15
-                view.currentDigit = 60
-                view.tag = 60
+                view.fontSize = 14
+        }
+        
+        onesView = NumberMorphView().add(to: timerView!)
+            .layout { (make) in
+                make.height.equalToSuperview()
+                make.width.equalToSuperview().dividedBy(2)
+                make.top.right.bottom.equalToSuperview()
+            }.config { (view) in
+                view.currentDigit = 0
+                view.interpolator = NumberMorphView.SpringInterpolator()
+                view.fontSize = 14
+        }
 
-            })
-        
-        
-        
-//        timerLabel = UILabel().add(to: self.infoView!)
-//            .layout(snpMaker: { (make) in
-//                make.center.equalToSuperview()
-//            }).config({ (view) in
-//                view.text = "100"
-//                view.tag = 100
-//            })
-//        
-        
-        
-        
-//        UILabel().add(to: self.playView!)
-//            .layout { (make) in
-//                make.left.right.top.bottom.equalToSuperview()
-//        }.config { (view) in
-//            view.text = letterUtils.getRandomEasyLetter()
-////            view.text = letterUtils.easyStr as String?
-//            view.lineBreakMode = .byCharWrapping
-//        }
         
         self.view.backgroundColor = .white
         textField = UITextField()
@@ -223,20 +225,30 @@ class GameViewController: UIViewController, UITextFieldDelegate{
     
     // MARK: 倒计时
     func timerCountDown() {
-        let num = (timerLabel?.tag)! - 1
-        timerLabel?.nextDigit = num
-        timerLabel?.tag = num
-
+        let number = leftTime - 1
         
-        // 每秒按几率出现文字
-        if(ifShowNewLetter(percentage: 100) && num <= 98) {
-            addNewLetterView()
-        }
-        // TODO: 倒计时完成跳转
-        if (num == 0) {
+        
+        // 倒计时完成跳转
+        if (number == 0) {
             let view = GameOverViewController()
             view.score = totalScore
             self.present(view, animated: true, completion: nil)
+        }
+
+
+        
+        let tens = number / 10
+        let ones = number - tens * 10
+
+        tensView?.nextDigit = tens
+        onesView?.nextDigit = ones
+        
+        leftTime = number
+
+        
+        // 每秒按几率出现文字
+        if(ifShowNewLetter(percentage: 100) && number <= 98) {
+            addNewLetterView()
         }
     }
     
