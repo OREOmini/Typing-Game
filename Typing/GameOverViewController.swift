@@ -11,6 +11,9 @@ import UIKit
 import SnapKit
 
 class GameOverViewController: UIViewController {
+    var score:Int?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpElement()

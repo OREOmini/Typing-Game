@@ -21,10 +21,11 @@ class GameViewController: UIViewController, UITextFieldDelegate{
     var playView:UIView?
     var letterWidth:CGFloat? = 70
     var keyboardHeight:CGFloat?
-    var scoreView:UILabel?
+    var scoreView:NumberMorphView?
     
     var timer:Timer?
-    var timerLabel:UILabel?
+    var timerLabel:NumberMorphView?
+//    var timeLabel
     
     var totalScore:Int = 0
     
@@ -92,7 +93,7 @@ class GameViewController: UIViewController, UITextFieldDelegate{
                 make.top.left.right.equalToSuperview()
                 make.bottom.equalTo((keyboardView?.snp.top)!)
             }).config({ (view) in
-                view.backgroundColor = .yellow
+                view.backgroundColor = .white
             })
         infoView = UIView()
             .add(to: self.gameView!)
@@ -101,7 +102,7 @@ class GameViewController: UIViewController, UITextFieldDelegate{
                 make.top.left.right.equalToSuperview()
                 make.height.equalTo(70)
             }).config({ (view) in
-                view.backgroundColor = .lightGray
+                view.backgroundColor = .clear
             })
         playView = UIView()
             .add(to: self.gameView!)
@@ -111,22 +112,57 @@ class GameViewController: UIViewController, UITextFieldDelegate{
             }).config({ (view) in
                 view.backgroundColor = .white
             })
-        scoreView = UILabel().add(to: infoView!)
+//        scoreView = UILabel().add(to: infoView!)
+//            .layout(snpMaker: { (make) in
+//                make.left.centerY.equalToSuperview()
+//                make.height.width.equalTo(50)
+//            }).config({ (view) in
+//                view.text = "0"
+//            })
+        
+        // 用NumberMorphView显示分数
+        scoreView = NumberMorphView()
+            .add(to: infoView!)
             .layout(snpMaker: { (make) in
                 make.left.centerY.equalToSuperview()
                 make.height.width.equalTo(50)
             }).config({ (view) in
-                view.text = "0"
+                view.interpolator = NumberMorphView.SpringInterpolator()
+                view.lineWidth = 3
             })
+        scoreView?.fontSize = 15
+        scoreView?.currentDigit = 0
+        let preferedSize = scoreView!.intrinsicContentSize
+        scoreView?.frame = CGRect(x: 10, y: 10, width: preferedSize.width, height: preferedSize.height)
         
-        timerLabel = UILabel().add(to: self.infoView!)
+        
+        
+        timerLabel = NumberMorphView()
+            .add(to: infoView!)
             .layout(snpMaker: { (make) in
-                make.center.equalToSuperview()
+                make.centerX.equalToSuperview()
+                make.bottom.equalToSuperview()
+                make.height.width.equalTo(50)
+                
             }).config({ (view) in
-                view.text = "100"
-                view.tag = 100
+                view.interpolator = NumberMorphView.SpringInterpolator()
+                view.lineWidth = 3
+                view.fontSize = 15
+                view.currentDigit = 60
+                view.tag = 60
+
             })
         
+        
+        
+//        timerLabel = UILabel().add(to: self.infoView!)
+//            .layout(snpMaker: { (make) in
+//                make.center.equalToSuperview()
+//            }).config({ (view) in
+//                view.text = "100"
+//                view.tag = 100
+//            })
+//        
         
         
         
@@ -179,7 +215,8 @@ class GameViewController: UIViewController, UITextFieldDelegate{
     
     func addScore(score:Int) {
         totalScore += score
-        scoreView!.text = String(totalScore)
+        scoreView!.nextDigit = totalScore
+//        scoreView!.text = String(totalScore)
     }
     
     
@@ -187,7 +224,7 @@ class GameViewController: UIViewController, UITextFieldDelegate{
     // MARK: 倒计时
     func timerCountDown() {
         let num = (timerLabel?.tag)! - 1
-        timerLabel?.text = String(num)
+        timerLabel?.nextDigit = num
         timerLabel?.tag = num
 
         
@@ -196,6 +233,11 @@ class GameViewController: UIViewController, UITextFieldDelegate{
             addNewLetterView()
         }
         // TODO: 倒计时完成跳转
+        if (num == 0) {
+            let view = GameOverViewController()
+            view.score = totalScore
+            self.present(view, animated: true, completion: nil)
+        }
     }
     
     // MARK: 游戏动态
@@ -254,23 +296,6 @@ class GameViewController: UIViewController, UITextFieldDelegate{
         })
 
     }
-    
-//    func showNewLetter(letter:String) -> Bool {
-//        let label = UILabel()
-//            .add(to: self.playView!)
-//            .layout { (make) in
-//                make.right.equalToSuperview()
-//                make.top.equalTo(30)
-//                make.width.height.equalTo(20)
-//        }.config { (view) in
-//            view.layer.borderWidth = 2
-//            view.layer.borderColor = UIColor.brown.cgColor
-//            view.text = letterUtils.getRandomEasyLetter()
-//            view.textAlignment = .center
-//        }
-//        
-//        return true
-//    }
     // MARK - 游戏功能
     
 }

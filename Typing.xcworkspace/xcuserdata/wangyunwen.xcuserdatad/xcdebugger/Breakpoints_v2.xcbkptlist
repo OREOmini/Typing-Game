@@ -15,8 +15,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "102"
             endingLineNumber = "102"
-            landmarkName = "NumberMorphView"
-            landmarkType = "3">
+            landmarkName = "intrinsicContentSize()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Typing/GameViewController.swift"
-            timestampString = "545471160.812564"
+            timestampString = "545475235.022415"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "221"
-            endingLineNumber = "221"
+            startingLineNumber = "266"
+            endingLineNumber = "266"
             landmarkName = "createLetterViewFrame()"
             landmarkType = "7">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Typing/GameViewController.swift"
-            timestampString = "545471160.812564"
+            timestampString = "545475235.022415"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "222"
-            endingLineNumber = "222"
+            startingLineNumber = "267"
+            endingLineNumber = "267"
             landmarkName = "createLetterViewFrame()"
             landmarkType = "7">
          </BreakpointContent>

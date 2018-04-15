@@ -22,6 +22,8 @@
 		DEB11D7B204E73F2007FF2EA /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB11D7A204E73F2007FF2EA /* Extension.swift */; };
 		DEB11D7F205B90E5007FF2EA /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB11D7E205B90E5007FF2EA /* GameViewController.swift */; };
 		DEBCB6842083347A00A6C5AE /* GameOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBCB6832083347A00A6C5AE /* GameOverViewController.swift */; };
+		DEBCB68720833BF800A6C5AE /* Typing.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DEBCB68520833BF800A6C5AE /* Typing.xcdatamodeld */; };
+		DEBCB6892083410100A6C5AE /* NumberMorphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBCB6882083410100A6C5AE /* NumberMorphView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		DEB11D7E205B90E5007FF2EA /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		DEB11D80205F82E5007FF2EA /* Typing-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Typing-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		DEBCB6832083347A00A6C5AE /* GameOverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverViewController.swift; sourceTree = "<group>"; };
+		DEBCB68620833BF800A6C5AE /* Typing.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Typing.xcdatamodel; sourceTree = "<group>"; };
+		DEBCB6882083410100A6C5AE /* NumberMorphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberMorphView.swift; sourceTree = "<group>"; };
 		F4ED6BF67190108D194B4A3A /* Pods_Typing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Typing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -83,6 +87,7 @@
 			children = (
 				DE6DEDC82062A983004BC338 /* ChineseLetterUtils.swift */,
 				DE05422D206BEEAD0091122A /* LetterView.swift */,
+				DEBCB6882083410100A6C5AE /* NumberMorphView.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -138,6 +143,7 @@
 				DEB11D6D204E6E96007FF2EA /* Assets.xcassets */,
 				DEB11D6F204E6E96007FF2EA /* LaunchScreen.storyboard */,
 				DEB11D72204E6E96007FF2EA /* Info.plist */,
+				DEBCB68520833BF800A6C5AE /* Typing.xcdatamodeld */,
 			);
 			path = Typing;
 			sourceTree = "<group>";
@@ -268,12 +274,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEBCB6892083410100A6C5AE /* NumberMorphView.swift in Sources */,
 				DEB11D7F205B90E5007FF2EA /* GameViewController.swift in Sources */,
 				DEB11D7B204E73F2007FF2EA /* Extension.swift in Sources */,
 				DEB11D69204E6E95007FF2EA /* ViewController.swift in Sources */,
 				DE054235206E97710091122A /* Utils.swift in Sources */,
 				DEBCB6842083347A00A6C5AE /* GameOverViewController.swift in Sources */,
 				DE6DEDC92062A983004BC338 /* ChineseLetterUtils.swift in Sources */,
+				DEBCB68720833BF800A6C5AE /* Typing.xcdatamodeld in Sources */,
 				DE05422E206BEEAD0091122A /* LetterView.swift in Sources */,
 				DEB11D67204E6E95007FF2EA /* AppDelegate.swift in Sources */,
 			);
@@ -447,6 +455,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DEBCB68520833BF800A6C5AE /* Typing.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DEBCB68620833BF800A6C5AE /* Typing.xcdatamodel */,
+			);
+			currentVersion = DEBCB68620833BF800A6C5AE /* Typing.xcdatamodel */;
+			path = Typing.xcdatamodeld;
+			sourceTree = SOURCE_ROOT;
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = DEB11D5B204E6E95007FF2EA /* Project object */;
 }
