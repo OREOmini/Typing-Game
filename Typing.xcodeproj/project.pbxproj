@@ -11,8 +11,9 @@
 		DE05422E206BEEAD0091122A /* LetterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE05422D206BEEAD0091122A /* LetterView.swift */; };
 		DE054235206E97710091122A /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE054234206E97710091122A /* Utils.swift */; };
 		DE6DEDC92062A983004BC338 /* ChineseLetterUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6DEDC82062A983004BC338 /* ChineseLetterUtils.swift */; };
-		DE6DEDCD2062ABAC004BC338 /* hardLetters.txt in Resources */ = {isa = PBXBuildFile; fileRef = DE6DEDCB2062ABAC004BC338 /* hardLetters.txt */; };
-		DE6DEDCE2062ABAC004BC338 /* easyLetters.txt in Resources */ = {isa = PBXBuildFile; fileRef = DE6DEDCC2062ABAC004BC338 /* easyLetters.txt */; };
+		DE79AEB22084F3ED008D26E8 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DE79AEB12084F3ED008D26E8 /* icon.png */; };
+		DE79AEB52088B1C3008D26E8 /* hardLetters.txt in Resources */ = {isa = PBXBuildFile; fileRef = DE79AEB32088B1C3008D26E8 /* hardLetters.txt */; };
+		DE79AEB62088B1C3008D26E8 /* easyLetters.txt in Resources */ = {isa = PBXBuildFile; fileRef = DE79AEB42088B1C3008D26E8 /* easyLetters.txt */; };
 		DEB11D67204E6E95007FF2EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB11D66204E6E95007FF2EA /* AppDelegate.swift */; };
 		DEB11D69204E6E95007FF2EA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB11D68204E6E95007FF2EA /* ViewController.swift */; };
 		DEB11D6C204E6E95007FF2EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEB11D6A204E6E95007FF2EA /* Main.storyboard */; };
@@ -33,8 +34,9 @@
 		DE05422D206BEEAD0091122A /* LetterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LetterView.swift; sourceTree = "<group>"; };
 		DE054234206E97710091122A /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		DE6DEDC82062A983004BC338 /* ChineseLetterUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChineseLetterUtils.swift; sourceTree = "<group>"; };
-		DE6DEDCB2062ABAC004BC338 /* hardLetters.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = hardLetters.txt; path = ../../../Downloads/hardLetters.txt; sourceTree = "<group>"; };
-		DE6DEDCC2062ABAC004BC338 /* easyLetters.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = easyLetters.txt; path = ../../../Downloads/easyLetters.txt; sourceTree = "<group>"; };
+		DE79AEB12084F3ED008D26E8 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = Typing/icon.png; sourceTree = "<group>"; };
+		DE79AEB32088B1C3008D26E8 /* hardLetters.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = hardLetters.txt; path = "supporting files/hardLetters.txt"; sourceTree = "<group>"; };
+		DE79AEB42088B1C3008D26E8 /* easyLetters.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = easyLetters.txt; path = "supporting files/easyLetters.txt"; sourceTree = "<group>"; };
 		DEB11D63204E6E95007FF2EA /* Typing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Typing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEB11D66204E6E95007FF2EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DEB11D68204E6E95007FF2EA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -108,8 +110,8 @@
 		DE6DEDCA2062AAB5004BC338 /* supporting files */ = {
 			isa = PBXGroup;
 			children = (
-				DE6DEDCB2062ABAC004BC338 /* hardLetters.txt */,
-				DE6DEDCC2062ABAC004BC338 /* easyLetters.txt */,
+				DE79AEB32088B1C3008D26E8 /* hardLetters.txt */,
+				DE79AEB42088B1C3008D26E8 /* easyLetters.txt */,
 			);
 			name = "supporting files";
 			sourceTree = "<group>";
@@ -117,6 +119,7 @@
 		DEB11D5A204E6E95007FF2EA = {
 			isa = PBXGroup;
 			children = (
+				DE79AEB12084F3ED008D26E8 /* icon.png */,
 				DEB11D65204E6E95007FF2EA /* Typing */,
 				DEB11D64204E6E95007FF2EA /* Products */,
 				31F49E7A8949E96FF2BA723A /* Pods */,
@@ -214,11 +217,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE79AEB22084F3ED008D26E8 /* icon.png in Resources */,
 				DEB11D71204E6E96007FF2EA /* LaunchScreen.storyboard in Resources */,
+				DE79AEB62088B1C3008D26E8 /* easyLetters.txt in Resources */,
+				DE79AEB52088B1C3008D26E8 /* hardLetters.txt in Resources */,
 				DEB11D6E204E6E96007FF2EA /* Assets.xcassets in Resources */,
-				DE6DEDCE2062ABAC004BC338 /* easyLetters.txt in Resources */,
 				DEB11D6C204E6E95007FF2EA /* Main.storyboard in Resources */,
-				DE6DEDCD2062ABAC004BC338 /* hardLetters.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
