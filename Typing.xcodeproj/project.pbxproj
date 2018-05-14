@@ -26,6 +26,8 @@
 		DEBCB68720833BF800A6C5AE /* Typing.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DEBCB68520833BF800A6C5AE /* Typing.xcdatamodeld */; };
 		DEBCB6892083410100A6C5AE /* NumberMorphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBCB6882083410100A6C5AE /* NumberMorphView.swift */; };
 		DEBCB68D2083552D00A6C5AE /* CountDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBCB68C2083552D00A6C5AE /* CountDownView.swift */; };
+		DEE0076520A9D66A008C6E81 /* zi_img.png in Resources */ = {isa = PBXBuildFile; fileRef = DEE0076320A9D66A008C6E81 /* zi_img.png */; };
+		DEE0076620A9D66A008C6E81 /* da_img.png in Resources */ = {isa = PBXBuildFile; fileRef = DEE0076420A9D66A008C6E81 /* da_img.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +54,8 @@
 		DEBCB68620833BF800A6C5AE /* Typing.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Typing.xcdatamodel; sourceTree = "<group>"; };
 		DEBCB6882083410100A6C5AE /* NumberMorphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberMorphView.swift; sourceTree = "<group>"; };
 		DEBCB68C2083552D00A6C5AE /* CountDownView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountDownView.swift; sourceTree = "<group>"; };
+		DEE0076320A9D66A008C6E81 /* zi_img.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = zi_img.png; path = "supporting files/zi_img.png"; sourceTree = "<group>"; };
+		DEE0076420A9D66A008C6E81 /* da_img.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = da_img.png; path = "supporting files/da_img.png"; sourceTree = "<group>"; };
 		F4ED6BF67190108D194B4A3A /* Pods_Typing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Typing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -110,6 +114,8 @@
 		DE6DEDCA2062AAB5004BC338 /* supporting files */ = {
 			isa = PBXGroup;
 			children = (
+				DEE0076320A9D66A008C6E81 /* zi_img.png */,
+				DEE0076420A9D66A008C6E81 /* da_img.png */,
 				DE79AEB32088B1C3008D26E8 /* hardLetters.txt */,
 				DE79AEB42088B1C3008D26E8 /* easyLetters.txt */,
 			);
@@ -219,9 +225,11 @@
 			files = (
 				DE79AEB22084F3ED008D26E8 /* icon.png in Resources */,
 				DEB11D71204E6E96007FF2EA /* LaunchScreen.storyboard in Resources */,
+				DEE0076520A9D66A008C6E81 /* zi_img.png in Resources */,
 				DE79AEB62088B1C3008D26E8 /* easyLetters.txt in Resources */,
 				DE79AEB52088B1C3008D26E8 /* hardLetters.txt in Resources */,
 				DEB11D6E204E6E96007FF2EA /* Assets.xcassets in Resources */,
+				DEE0076620A9D66A008C6E81 /* da_img.png in Resources */,
 				DEB11D6C204E6E95007FF2EA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -19,6 +19,8 @@ target 'Typing' do
   
 #  pod 'Spring', '1.0.4'
     pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift3'
+    
+    pod 'TextFieldEffects'
 
 #  pod 'NumberMorphView', '0.2.0'
 #  pod 'CountdownLabel'

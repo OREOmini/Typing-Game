@@ -21,7 +21,7 @@ class GameViewController: UIViewController, UITextFieldDelegate{
     var playView:UIView?
     var letterWidth:CGFloat? = 70
     var keyboardHeight:CGFloat?
-    var scoreView:NumberMorphView?
+    var scoreView:UILabel?
     var timerView:UIView?
     
     var timer:Timer?
@@ -129,27 +129,27 @@ class GameViewController: UIViewController, UITextFieldDelegate{
                 view.backgroundColor = .white
                 view.clipsToBounds = false
             })
-//        scoreView = UILabel().add(to: infoView!)
-//            .layout(snpMaker: { (make) in
-//                make.left.centerY.equalToSuperview()
-//                make.height.width.equalTo(50)
-//            }).config({ (view) in
-//                view.text = "0"
-//            })
-        
-        // 用NumberMorphView显示分数
-        scoreView = NumberMorphView()
-            .add(to: infoView!)
+        scoreView = UILabel().add(to: infoView!)
             .layout(snpMaker: { (make) in
                 make.left.centerY.equalToSuperview()
                 make.height.width.equalTo(50)
             }).config({ (view) in
-                view.interpolator = NumberMorphView.SpringInterpolator()
+                view.text = "0"
             })
-        scoreView?.fontSize = 15
-        scoreView?.currentDigit = 0
-        let preferedSize = scoreView!.intrinsicContentSize
-        scoreView?.frame = CGRect(x: 10, y: 10, width: preferedSize.width, height: preferedSize.height)
+        
+        // 显示分数
+//        scoreView = NumberMorphView()
+//            .add(to: infoView!)
+//            .layout(snpMaker: { (make) in
+//                make.left.centerY.equalToSuperview()
+//                make.height.width.equalTo(50)
+//            }).config({ (view) in
+//                view.interpolator = NumberMorphView.SpringInterpolator()
+//            })
+//        scoreView?.fontSize = 15
+//        scoreView?.currentDigit = 0
+//        let preferedSize = scoreView!.intrinsicContentSize
+//        scoreView?.frame = CGRect(x: 10, y: 10, width: preferedSize.width, height: preferedSize.height)
         
         
         // 显示倒计时数字
@@ -217,8 +217,8 @@ class GameViewController: UIViewController, UITextFieldDelegate{
     
     func addScore(score:Int) {
         totalScore += score
-        scoreView!.nextDigit = totalScore
-//        scoreView!.text = String(totalScore)
+//        scoreView!.nextDigit = totalScore
+        scoreView!.text = String(totalScore)
     }
     
     

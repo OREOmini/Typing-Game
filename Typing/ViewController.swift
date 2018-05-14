@@ -8,8 +8,10 @@
 
 import UIKit
 import SnapKit
+import TextFieldEffects
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
+    var nameField:KaedeTextField?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,21 +23,73 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    // 点击空白收回键盘
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+    // 点击return收回键盘
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
     
     func setUpElement() {
-        UIButton()
+        self.view.backgroundColor = UIColor(hex: "#f2ecde")
+        
+        nameField = KaedeTextField()
+        nameField?.add(to: self.view)
+            .layout(snpMaker: { (make) in
+                make.width.equalToSuperview().dividedBy(2)
+                make.height.equalTo(40)
+                make.center.equalToSuperview()
+            }).config({ (view) in
+                view.placeholderColor = .darkGray
+                view.foregroundColor = .lightGray
+                view.placeholder = "请输入姓名"
+                view.delegate = self
+//                view.textColor = .white
+                
+                view.backgroundColor = UIColor(hex: "#bfbfbf")
+                
+//                view.placeholderFontScale = 0.8
+            })
+
+        
+        let startBtn = UIButton()
             .add(to: self.view)
             .layout { (make) in
                 make.width.height.equalTo(100)
-                make.centerX.centerY.equalToSuperview()
+                make.centerX.equalToSuperview()
+                make.top.equalTo((nameField?.snp.bottom)!).offset(40)
         }.config { (btn) in
-            btn.setTitle("Start", for: .normal)
+            btn.setTitle("开始", for: .normal)
             btn.setTitleColor(.white, for: .normal)
+            btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
             btn.backgroundColor = .gray
             btn.addTarget(self, action: #selector(startGame), for: .touchUpInside)
+            btn.layer.cornerRadius = 50
         }
         
-//        LetterView(frame: CGRect(x: 0, y: 0, width: 50, height: 50)).add(to: self.view)
+        let daImageView = UIImageView().add(to: self.view)
+            .layout { (make) in
+                make.top.equalToSuperview().offset(100)
+                make.right.equalTo(nameField!.snp.centerX).offset(-10)
+                make.width.height.equalTo(140)
+        }.config { (view) in
+            view.image = UIImage(named: "da_img.png")
+            view.contentMode = .scaleToFill
+        }
+        UIImageView().add(to: self.view)
+            .layout { (make) in
+                make.top.equalTo(daImageView.snp.top)
+                make.left.equalTo(startBtn.snp.centerX).offset(10)
+                make.width.height.equalTo(140)
+        }.config { (view) in
+            view.image = UIImage(named: "zi_img.png")
+            view.contentMode = .scaleToFill
+        }
+        
+ 
         
     }
     
