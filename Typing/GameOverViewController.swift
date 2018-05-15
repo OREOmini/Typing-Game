@@ -21,6 +21,14 @@ class GameOverViewController: UIViewController {
     }
     
     func setUpElement() {
+        self.view.backgroundColor = UIColor(hex: "#f2ecde")
         
+        UILabel().add(to: self.view)
+            .layout(snpMaker: { (make) in
+                make.center.equalToSuperview()
+            })
+            .config { (view) in
+                view.text = String(score!)
+        }
     }
 }

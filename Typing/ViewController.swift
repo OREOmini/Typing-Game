@@ -41,7 +41,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
             .layout(snpMaker: { (make) in
                 make.width.equalToSuperview().dividedBy(2)
                 make.height.equalTo(40)
-                make.center.equalToSuperview()
+                make.centerX.equalToSuperview()
+                make.centerY.equalToSuperview().offset(40)
             }).config({ (view) in
                 view.placeholderColor = .darkGray
                 view.foregroundColor = .lightGray
@@ -72,7 +73,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         let daImageView = UIImageView().add(to: self.view)
             .layout { (make) in
-                make.top.equalToSuperview().offset(100)
+//                make.top.equalToSuperview().offset(100)
+                make.bottom.equalTo(nameField!.snp.top).offset(-80)
                 make.right.equalTo(nameField!.snp.centerX).offset(-10)
                 make.width.height.equalTo(140)
         }.config { (view) in

@@ -31,7 +31,7 @@ class GameViewController: UIViewController, UITextFieldDelegate{
 //    var timeLabel
     
     var totalScore:Int = 0
-    var leftTime:Int = 60
+    var leftTime:Int = 6
     
     var manager:IQKeyboardManager? = IQKeyboardManager.sharedManager()
     
@@ -77,6 +77,7 @@ class GameViewController: UIViewController, UITextFieldDelegate{
     }
     
     func setUpElement() {
+        self.view.backgroundColor = UIColor(hex: "#f2ecde")
         
         keyboardView = UIView()
             .add(to: self.view)
@@ -131,10 +132,11 @@ class GameViewController: UIViewController, UITextFieldDelegate{
             })
         scoreView = UILabel().add(to: infoView!)
             .layout(snpMaker: { (make) in
-                make.left.centerY.equalToSuperview()
+                make.right.centerY.equalToSuperview()
                 make.height.width.equalTo(50)
             }).config({ (view) in
                 view.text = "0"
+                view.font = UIFont.boldSystemFont(ofSize: 20)
             })
         
         // 显示分数
@@ -217,7 +219,6 @@ class GameViewController: UIViewController, UITextFieldDelegate{
     
     func addScore(score:Int) {
         totalScore += score
-//        scoreView!.nextDigit = totalScore
         scoreView!.text = String(totalScore)
     }
     
@@ -225,16 +226,16 @@ class GameViewController: UIViewController, UITextFieldDelegate{
     
     // MARK: 倒计时
     func timerCountDown() {
-        let number = leftTime - 1
-        
-        
         // 倒计时完成跳转
-        if (number == 0) {
-            let view = GameOverViewController()
-            view.score = totalScore
-            self.present(view, animated: true, completion: nil)
+        if (leftTime == 0) {
+            timer?.invalidate()
+            timer = nil
+            
+            gameOver()
         }
 
+        
+        let number = leftTime - 1
 
         
         let tens = number / 10
@@ -247,12 +248,35 @@ class GameViewController: UIViewController, UITextFieldDelegate{
 
         
         // 每秒按几率出现文字
-        if(ifShowNewLetter(percentage: 100) && number <= 98) {
+        if(ifShowNewLetter(percentage: 80) && number <= 98) {
             addNewLetterView()
         }
     }
     
-    // MARK: 游戏动态
+    func gameOver() {
+//        for view in (playView?.subviews)!{
+//            view.removeFromSuperview()
+//        }
+        asyncRemove { 
+            for view in (playView?.subviews)!{
+                view.removeFromSuperview()
+            }
+        }
+        
+        let view = GameOverViewController()
+        //            self.navigationController?.pushViewController(view, animated: true)
+        view.score = totalScore
+        self.present(view, animated: true, completion: nil)
+
+    }
+    func asyncRemove(completion: () -> Void) {
+        for view in (playView?.subviews)!{
+            view.removeFromSuperview()
+        }
+        completion()
+    }
+    
+    // MARK: 生成并加入文字
     func addNewLetterView() {
         var frame:CGRect?
         for i in 0...2000 {
@@ -270,7 +294,7 @@ class GameViewController: UIViewController, UITextFieldDelegate{
     
     func createLetterViewFrame() -> CGRect? {
         let newFrame = getRandomFrame(frame: playView!.frame, width: letterWidth!)
-//        print("newframe:\(newFrame)")
+
         for subView in playView!.subviews {
             if (isOverlap(frameA: subView.frame, frameB: newFrame)) {
                 return nil
@@ -280,6 +304,7 @@ class GameViewController: UIViewController, UITextFieldDelegate{
         
     }
     
+    // MARK:文字消失
     func letterViewDisappear(view:LetterView) {
         view.curve = "fadeOut"
         view.duration = 0.5
@@ -308,6 +333,5 @@ class GameViewController: UIViewController, UITextFieldDelegate{
         })
 
     }
-    // MARK - 游戏功能
     
 }
