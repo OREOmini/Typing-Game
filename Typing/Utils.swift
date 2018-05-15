@@ -24,13 +24,14 @@ func getRandomNum(length:Int) -> Int {
 }
 
 func getRandomFrame(frame: CGRect, width: CGFloat) -> CGRect {
-//    print("playFrame:" + (String(describing: frame)))
+    print("playFrame:" + (String(describing: frame)))
     
     let frameWidth = frame.width
     let frameHeight = frame.height
     
     let newX:CGFloat = (frameWidth - width) * CGFloat(Float(getRandomNum(length: 100)) / 100.0)
     let newY:CGFloat = (frameHeight - width) * CGFloat(Float(getRandomNum(length: 100)) / 100.0)
+    print("X:\(newX)  Y:\(newY)")
     
     return CGRect(x: newX, y: newY, width: width, height: width)
 }

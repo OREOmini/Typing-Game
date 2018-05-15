@@ -27,11 +27,10 @@ class GameViewController: UIViewController, UITextFieldDelegate{
     var timer:Timer?
     var tensView:NumberMorphView?
     var onesView:NumberMorphView?
-//    var timerLabel:NumberMorphView?
-//    var timeLabel
+
     
     var totalScore:Int = 0
-    var leftTime:Int = 6
+    var leftTime:Int = 60
     
     var manager:IQKeyboardManager? = IQKeyboardManager.sharedManager()
     
@@ -52,13 +51,14 @@ class GameViewController: UIViewController, UITextFieldDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        setUpElement()
+        setUpElement { 
+            timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerCountDown), userInfo: nil, repeats: true)
+            
+            timer?.fire()
+
+        }
         
-        
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerCountDown), userInfo: nil, repeats: true)
-        
-        timer?.fire()
-    }
+}
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -76,7 +76,7 @@ class GameViewController: UIViewController, UITextFieldDelegate{
         print("keybordShow:\(keyboardHeight)")
     }
     
-    func setUpElement() {
+    func setUpElement(completion: () -> Void) {
         self.view.backgroundColor = UIColor(hex: "#f2ecde")
         
         keyboardView = UIView()
@@ -139,20 +139,6 @@ class GameViewController: UIViewController, UITextFieldDelegate{
                 view.font = UIFont.boldSystemFont(ofSize: 20)
             })
         
-        // 显示分数
-//        scoreView = NumberMorphView()
-//            .add(to: infoView!)
-//            .layout(snpMaker: { (make) in
-//                make.left.centerY.equalToSuperview()
-//                make.height.width.equalTo(50)
-//            }).config({ (view) in
-//                view.interpolator = NumberMorphView.SpringInterpolator()
-//            })
-//        scoreView?.fontSize = 15
-//        scoreView?.currentDigit = 0
-//        let preferedSize = scoreView!.intrinsicContentSize
-//        scoreView?.frame = CGRect(x: 10, y: 10, width: preferedSize.width, height: preferedSize.height)
-        
         
         // 显示倒计时数字
         
@@ -197,6 +183,8 @@ class GameViewController: UIViewController, UITextFieldDelegate{
                 view.layer.borderWidth = 3
                 view.layer.borderColor = UIColor.gray.cgColor
             })
+        
+        completion()
     }
     
     // MARK: 键盘send点击后
@@ -211,7 +199,6 @@ class GameViewController: UIViewController, UITextFieldDelegate{
                     letterViewDisappear(view: view as! LetterView)
                 }
                 textField.text = ""
-
             }
         }
         return true
@@ -231,47 +218,37 @@ class GameViewController: UIViewController, UITextFieldDelegate{
             timer?.invalidate()
             timer = nil
             
-            gameOver()
-        }
-
-        
-        let number = leftTime - 1
-
-        
-        let tens = number / 10
-        let ones = number - tens * 10
-
-        tensView?.nextDigit = tens
-        onesView?.nextDigit = ones
-        
-        leftTime = number
-
-        
-        // 每秒按几率出现文字
-        if(ifShowNewLetter(percentage: 80) && number <= 98) {
-            addNewLetterView()
+            asyncRemove {
+                let view = GameOverViewController()
+                view.score = totalScore
+                self.present(view, animated: true, completion: nil)
+            }
+            
+        } else {
+            let number = leftTime - 1
+//            let totalTime = 60
+            
+            let tens = number / 10
+            let ones = number - tens * 10
+            
+            tensView?.nextDigit = tens
+            onesView?.nextDigit = ones
+            
+            leftTime = number
+            
+            
+            // 每秒按几率出现文字
+            if(ifShowNewLetter(percentage: 100)) {
+                addNewLetterView()
+            }
         }
     }
     
-    func gameOver() {
-//        for view in (playView?.subviews)!{
-//            view.removeFromSuperview()
-//        }
-        asyncRemove { 
-            for view in (playView?.subviews)!{
-                view.removeFromSuperview()
-            }
-        }
-        
-        let view = GameOverViewController()
-        //            self.navigationController?.pushViewController(view, animated: true)
-        view.score = totalScore
-        self.present(view, animated: true, completion: nil)
-
-    }
     func asyncRemove(completion: () -> Void) {
         for view in (playView?.subviews)!{
+            (view as! LetterView).progress.stopAnimation()
             view.removeFromSuperview()
+            onesView?.removeFromSuperview()
         }
         completion()
     }
@@ -294,7 +271,10 @@ class GameViewController: UIViewController, UITextFieldDelegate{
     
     func createLetterViewFrame() -> CGRect? {
         let newFrame = getRandomFrame(frame: playView!.frame, width: letterWidth!)
-
+        if (newFrame.minX < 0 || newFrame.minY < 0) {
+            return nil
+        }
+        
         for subView in playView!.subviews {
             if (isOverlap(frameA: subView.frame, frameB: newFrame)) {
                 return nil
@@ -312,15 +292,6 @@ class GameViewController: UIViewController, UITextFieldDelegate{
         view.animateToNext {
             view.removeFromSuperview()
         }
-        //        view.removeFromSuperview()
-        
-        //        let bounds = view.bounds
-        //        view.animateWithDuration(0.5, delay: 0.0, usingSpringWithDamping: 0.1, initialSpringVelocity: 10, options: nil, animations: {
-        //            self.loginButton.bounds = CGRect(x: bounds.origin.x - 20, y: bounds.origin.y, width: bounds.size.width + 60, height: bounds.size.height)
-        //            self.loginButton.enabled = false
-        //        }, completion: {_ in
-        //            view.removeFromSuperview()
-        //        })
     }
     
     func letterViewAppearAnimation(view:LetterView) {
