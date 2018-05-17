@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Typing/GameViewController.swift"
-            timestampString = "548094326.17498"
+            timestampString = "548260263.424346"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "228"
-            endingLineNumber = "228"
+            startingLineNumber = "267"
+            endingLineNumber = "267"
             landmarkName = "timerCountDown()"
             landmarkType = "7">
          </BreakpointContent>

@@ -23,6 +23,7 @@ class GameViewController: UIViewController, UITextFieldDelegate{
     var keyboardHeight:CGFloat?
     var scoreView:UILabel?
     var timerView:UIView?
+    var stopBtn:UIButton?
     
     var timer:Timer?
     var tensView:NumberMorphView?
@@ -138,6 +139,15 @@ class GameViewController: UIViewController, UITextFieldDelegate{
                 view.text = "0"
                 view.font = UIFont.boldSystemFont(ofSize: 20)
             })
+        stopBtn = UIButton().add(to: infoView!)
+            .layout(snpMaker: { (make) in
+                make.left.top.equalToSuperview().offset(30)
+                make.height.width.equalTo(30)
+            }).config({ (view) in
+                view.imageView?.image = UIImage(named: "pause_btn")
+                view.backgroundColor = .gray
+                view.addTarget(self, action: #selector(pauseGame), for: .touchUpInside)
+            })
         
         
         // 显示倒计时数字
@@ -185,6 +195,36 @@ class GameViewController: UIViewController, UITextFieldDelegate{
             })
         
         completion()
+    }
+    // MARK: 暂停游戏
+    func pauseGame() {
+        timer?.invalidate()
+        stopAllAnimation()
+        
+        let pauseView = PauseGameView()
+        pauseView.show(in: self.playView?.window, resumeGameAction: {
+            print("pausegame")
+            self.startAllAnimation()
+//            self.router.targetCNCarPostList([kObject: self.listType as Any])
+        })
+    }
+    func stopAllAnimation() {
+        for view in (playView?.subviews)! {
+            let viewLetter = (view as! LetterView)
+            viewLetter.progress.pauseAnimation()
+        }
+    }
+    func startAllAnimation() {
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerCountDown), userInfo: nil, repeats: true)
+        timer?.fire()
+        for view in (playView?.subviews)! {
+            let viewLetter = (view as! LetterView)
+            let angle = viewLetter.progress.angle
+            let leftTime = (360 - angle) / (360 / 10)
+            viewLetter.progress.animate(fromAngle: angle, toAngle: 360, duration: leftTime, completion: { (c) in
+                view.removeFromSuperview()
+            })
+        }
     }
     
     // MARK: 键盘send点击后

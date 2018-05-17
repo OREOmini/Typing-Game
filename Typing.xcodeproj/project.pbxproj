@@ -10,6 +10,9 @@
 		6271A173396923332A1139DE /* Pods_Typing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4ED6BF67190108D194B4A3A /* Pods_Typing.framework */; };
 		DE05422E206BEEAD0091122A /* LetterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE05422D206BEEAD0091122A /* LetterView.swift */; };
 		DE054235206E97710091122A /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE054234206E97710091122A /* Utils.swift */; };
+		DE3D09D720ADBD1800F45FA4 /* PauseGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3D09D620ADBD1800F45FA4 /* PauseGameView.swift */; };
+		DE3D09DA20ADD07700F45FA4 /* resume_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = DE3D09D820ADD07700F45FA4 /* resume_btn.png */; };
+		DE3D09DB20ADD07700F45FA4 /* pause_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = DE3D09D920ADD07700F45FA4 /* pause_btn.png */; };
 		DE6DEDC92062A983004BC338 /* ChineseLetterUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6DEDC82062A983004BC338 /* ChineseLetterUtils.swift */; };
 		DE79AEB22084F3ED008D26E8 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DE79AEB12084F3ED008D26E8 /* icon.png */; };
 		DE79AEB52088B1C3008D26E8 /* hardLetters.txt in Resources */ = {isa = PBXBuildFile; fileRef = DE79AEB32088B1C3008D26E8 /* hardLetters.txt */; };
@@ -35,6 +38,9 @@
 		D4F67CBA550360F5A2F4A6E3 /* Pods-Typing.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Typing.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Typing/Pods-Typing.debug.xcconfig"; sourceTree = "<group>"; };
 		DE05422D206BEEAD0091122A /* LetterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LetterView.swift; sourceTree = "<group>"; };
 		DE054234206E97710091122A /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		DE3D09D620ADBD1800F45FA4 /* PauseGameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PauseGameView.swift; sourceTree = "<group>"; };
+		DE3D09D820ADD07700F45FA4 /* resume_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = resume_btn.png; path = "supporting files/resume_btn.png"; sourceTree = "<group>"; };
+		DE3D09D920ADD07700F45FA4 /* pause_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pause_btn.png; path = "supporting files/pause_btn.png"; sourceTree = "<group>"; };
 		DE6DEDC82062A983004BC338 /* ChineseLetterUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChineseLetterUtils.swift; sourceTree = "<group>"; };
 		DE79AEB12084F3ED008D26E8 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = Typing/icon.png; sourceTree = "<group>"; };
 		DE79AEB32088B1C3008D26E8 /* hardLetters.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = hardLetters.txt; path = "supporting files/hardLetters.txt"; sourceTree = "<group>"; };
@@ -107,6 +113,7 @@
 				DEB11D68204E6E95007FF2EA /* ViewController.swift */,
 				DEB11D7E205B90E5007FF2EA /* GameViewController.swift */,
 				DEBCB6832083347A00A6C5AE /* GameOverViewController.swift */,
+				DE3D09D620ADBD1800F45FA4 /* PauseGameView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -114,6 +121,8 @@
 		DE6DEDCA2062AAB5004BC338 /* supporting files */ = {
 			isa = PBXGroup;
 			children = (
+				DE3D09D820ADD07700F45FA4 /* resume_btn.png */,
+				DE3D09D920ADD07700F45FA4 /* pause_btn.png */,
 				DEE0076320A9D66A008C6E81 /* zi_img.png */,
 				DEE0076420A9D66A008C6E81 /* da_img.png */,
 				DE79AEB32088B1C3008D26E8 /* hardLetters.txt */,
@@ -230,6 +239,8 @@
 				DE79AEB52088B1C3008D26E8 /* hardLetters.txt in Resources */,
 				DEB11D6E204E6E96007FF2EA /* Assets.xcassets in Resources */,
 				DEE0076620A9D66A008C6E81 /* da_img.png in Resources */,
+				DE3D09DB20ADD07700F45FA4 /* pause_btn.png in Resources */,
+				DE3D09DA20ADD07700F45FA4 /* resume_btn.png in Resources */,
 				DEB11D6C204E6E95007FF2EA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -294,6 +305,7 @@
 				DEB11D7B204E73F2007FF2EA /* Extension.swift in Sources */,
 				DEB11D69204E6E95007FF2EA /* ViewController.swift in Sources */,
 				DE054235206E97710091122A /* Utils.swift in Sources */,
+				DE3D09D720ADBD1800F45FA4 /* PauseGameView.swift in Sources */,
 				DEBCB6842083347A00A6C5AE /* GameOverViewController.swift in Sources */,
 				DE6DEDC92062A983004BC338 /* ChineseLetterUtils.swift in Sources */,
 				DEBCB68720833BF800A6C5AE /* Typing.xcdatamodeld in Sources */,
