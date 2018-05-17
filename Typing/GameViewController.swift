@@ -141,11 +141,10 @@ class GameViewController: UIViewController, UITextFieldDelegate{
             })
         stopBtn = UIButton().add(to: infoView!)
             .layout(snpMaker: { (make) in
-                make.left.top.equalToSuperview().offset(30)
-                make.height.width.equalTo(30)
+                make.left.top.equalToSuperview().offset(20)
+                make.height.width.equalTo(50)
             }).config({ (view) in
-                view.imageView?.image = UIImage(named: "pause_btn")
-                view.backgroundColor = .gray
+                view.setImage(UIImage(named: "pause_btn2"), for: .normal)
                 view.addTarget(self, action: #selector(pauseGame), for: .touchUpInside)
             })
         

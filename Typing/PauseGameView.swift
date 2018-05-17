@@ -57,7 +57,7 @@ extension PauseGameView {
 //            self.hide()
 //        }))
         
-        let confirmView = UIView(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH * 0.5, height: 150))
+        let confirmView = UIView(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH * 0.5, height: 130))
         confirmView.backgroundColor = .white
         confirmView.layer.cornerRadius = 8
         confirmView.layer.masksToBounds = true
@@ -71,19 +71,27 @@ extension PauseGameView {
 //            confirmView.layer.masksToBounds = true
 //        }
         let image = UIButton(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH * 0.5, height: 87))
-        image.imageView?.image = UIImage(named: "pause_btn")
-        confirmView.addSubview(img)
-        
-        let cnCarBtn = UIButton(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH * 0.5, height: 87))
-        cnCarBtn.setTitle("继续游戏", for: .normal)
-        cnCarBtn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 24)
-
-        cnCarBtn.titleEdgeInsets = UIEdgeInsetsMake(5, 0, 0, 0)
-        cnCarBtn.tintColor = .gray
-        cnCarBtn.titleLabel?.textColor = .gray
-        cnCarBtn.addTarget(self, action: #selector(PauseGameView.btnTapped), for: .touchUpInside)
-        
-        confirmView.addSubview(cnCarBtn)
+        image.setImage(UIImage(named: "resume_btn"), for: .normal)
+        confirmView.addSubview(image)
+        image.addTarget(self, action: #selector(PauseGameView.btnTapped), for: .touchUpInside)
+        let label = UILabel(frame: CGRect(x: 0, y: 50, width: SCREEN_WIDTH * 0.5, height: 87))
+        label.textColor = .gray
+        label.textAlignment = .center
+        label.text = "继续游戏"
+        label.font = UIFont.boldSystemFont(ofSize: 23)
+        confirmView.addSubview(label)
+//        
+//        let cnCarBtn = UIButton(frame: CGRect(x: 0, y: 87, width: SCREEN_WIDTH * 0.5, height: 87))
+//        
+//        cnCarBtn.setTitle("继续游戏", for: .normal)
+//        cnCarBtn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 24)
+//
+//        cnCarBtn.titleEdgeInsets = UIEdgeInsetsMake(5, 0, 0, 0)
+//        cnCarBtn.tintColor = .gray
+//        cnCarBtn.titleLabel?.textColor = .gray
+//        cnCarBtn.addTarget(self, action: #selector(PauseGameView.btnTapped), for: .touchUpInside)
+//        
+//        confirmView.addSubview(cnCarBtn)
 
         self.addSubview(confirmView)
         
