@@ -97,6 +97,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     func startGame() {
         let gameView = GameViewController()
+        let name = nameField?.text
+        gameView.name = name!
+        print("name: \(name)")
         self.present(gameView, animated: true, completion: nil)
 //        self.navigationController!.pushViewController(gameView, animated: true)
     }

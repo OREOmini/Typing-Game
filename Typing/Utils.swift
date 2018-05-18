@@ -46,3 +46,11 @@ func isOverlap(frameA: CGRect, frameB: CGRect) -> Bool {
     
     return true
 }
+func separator (_ frame : CGRect, color : UIColor?, alpha : CGFloat) -> UIImageView
+{
+    let separator = UIImageView(frame: frame)
+    separator.backgroundColor = color
+    separator.alpha = alpha
+    
+    return separator
+}

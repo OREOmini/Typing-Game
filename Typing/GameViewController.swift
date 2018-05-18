@@ -35,6 +35,8 @@ class GameViewController: UIViewController, UITextFieldDelegate{
     
     var manager:IQKeyboardManager? = IQKeyboardManager.sharedManager()
     
+    var name:String = ""
+    
     override func viewWillAppear(_ animated: Bool) {
         // 让textField自动获取焦点，弹出键盘
         textField?.becomeFirstResponder()
@@ -204,7 +206,6 @@ class GameViewController: UIViewController, UITextFieldDelegate{
         pauseView.show(in: self.playView?.window, resumeGameAction: {
             print("pausegame")
             self.startAllAnimation()
-//            self.router.targetCNCarPostList([kObject: self.listType as Any])
         })
     }
     func stopAllAnimation() {
@@ -258,8 +259,13 @@ class GameViewController: UIViewController, UITextFieldDelegate{
             timer = nil
             
             asyncRemove {
+                //保存player
+                addNewPlayer(name: name, score: totalScore)
+                
+                
                 let view = GameOverViewController()
                 view.score = totalScore
+                view.name = name
                 self.present(view, animated: true, completion: nil)
             }
             
