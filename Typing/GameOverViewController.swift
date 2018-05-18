@@ -31,7 +31,8 @@ class GameOverViewController: UIViewController {
         
         let scoreLabel = UILabel().add(to: self.view)
             .layout(snpMaker: { (make) in
-                make.center.equalToSuperview()
+                make.centerX.equalToSuperview()
+                make.centerY.equalToSuperview().offset(-40)
             })
             .config { (view) in
                 view.textColor = THEME_RED
@@ -43,12 +44,13 @@ class GameOverViewController: UIViewController {
         UILabel().add(to: self.view)
             .layout(snpMaker: { (make) in
                 make.centerX.equalToSuperview()
-                make.bottom.equalTo(scoreLabel.snp.top).offset(-30)
+                make.bottom.equalTo(scoreLabel.snp.top).offset(-1)
             })
             .config { (view) in
                 view.text = "您一分钟打字数目为"
 //                view.text = name
-                view.font = UIFont.boldSystemFont(ofSize: 24)
+//                view.font = UIFont.boldSystemFont(ofSize: 24)
+                view.font = UIFont.systemFont(ofSize: 24, weight: 700)
                 view.textColor = THEME_BLUE
         }
         UILabel().add(to: self.view)

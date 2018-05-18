@@ -30,8 +30,8 @@ class GameViewController: UIViewController, UITextFieldDelegate{
     var onesView:NumberMorphView?
 
     
-    var totalScore:Int = 0
-    var leftTime:Int = 60
+    var totalScore:Int = 20
+    var leftTime:Int = 3
     
     var manager:IQKeyboardManager? = IQKeyboardManager.sharedManager()
     
@@ -269,18 +269,6 @@ class GameViewController: UIViewController, UITextFieldDelegate{
                 label.removeFromSuperview()
             }))
         }
-//        let frame = view.frame
-//        let label = UILabel(frame: frame).add(to: self.playView!)
-//            .config { (view) in
-//                view.text = "+1"
-//                view.font = UIFont.boldSystemFont(ofSize: 20)
-//                view.textColor = .gray
-//        }
-//        UIView.animate(withDuration: 0.2, animations: {() -> Void in
-//            label.alpha = 0
-//        }, completion: ({(finished) -> Void in
-//            label.removeFromSuperview()
-//        }))
     }
     
     func letterViewAppearAnimation(view:LetterView) {
