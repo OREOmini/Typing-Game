@@ -248,6 +248,52 @@ class GameViewController: UIViewController, UITextFieldDelegate{
         totalScore += score
         scoreView!.text = String(totalScore)
     }
+    // MARK:文字消失
+    func letterViewDisappear(view:LetterView) {
+        view.curve = "fadeOut"
+        view.duration = 0.5
+        view.animate()
+        view.animateToNext {
+            view.removeFromSuperview()
+            let frame = view.frame
+            let label = UILabel(frame: frame).add(to: self.playView!)
+                .config { (view) in
+                    view.text = "+1"
+                    view.font = UIFont.boldSystemFont(ofSize: 25)
+                    view.textColor = .gray
+                    view.textAlignment = .center
+            }
+            UIView.animate(withDuration: 0.5, animations: {() -> Void in
+                label.alpha = 0
+            }, completion: ({(finished) -> Void in
+                label.removeFromSuperview()
+            }))
+        }
+//        let frame = view.frame
+//        let label = UILabel(frame: frame).add(to: self.playView!)
+//            .config { (view) in
+//                view.text = "+1"
+//                view.font = UIFont.boldSystemFont(ofSize: 20)
+//                view.textColor = .gray
+//        }
+//        UIView.animate(withDuration: 0.2, animations: {() -> Void in
+//            label.alpha = 0
+//        }, completion: ({(finished) -> Void in
+//            label.removeFromSuperview()
+//        }))
+    }
+    
+    func letterViewAppearAnimation(view:LetterView) {
+        view.animation = "pop"
+        view.curve = "zoomIn"
+        view.duration = 2
+        view.animate()
+        view.animateToNext(completion: {
+            //            print("Spring animate complete")
+        })
+        
+    }
+
     
     
     
@@ -327,27 +373,6 @@ class GameViewController: UIViewController, UITextFieldDelegate{
         }
         return newFrame
         
-    }
-    
-    // MARK:文字消失
-    func letterViewDisappear(view:LetterView) {
-        view.curve = "fadeOut"
-        view.duration = 0.5
-        view.animate()
-        view.animateToNext {
-            view.removeFromSuperview()
-        }
-    }
-    
-    func letterViewAppearAnimation(view:LetterView) {
-        view.animation = "pop"
-        view.curve = "zoomIn"
-        view.duration = 2
-        view.animate()
-        view.animateToNext(completion: {
-//            print("Spring animate complete")
-        })
-
     }
     
 }
